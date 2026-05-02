@@ -9,12 +9,14 @@ export default function Hero() {
     <section className="h-screen flex flex-col items-center justify-center text-center bg-[#0B0B0F] text-white relative overflow-hidden">
       {/* Glow Background */}
       <div className="absolute w-[500px] h-[500px] bg-purple-600 opacity-20 blur-[120px] rounded-full"></div>
+
       <motion.h1
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
+        className="text-4xl md:text-6xl font-bold"
       >
-        Hi, I'm Fatima
+        Hi, I'm Fatima 👋
       </motion.h1>
 
       <motion.p
