@@ -78,7 +78,7 @@ export default function Navbar() {
           {/* Hamburger Menu */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden p-2 rounded-lg bg-white/10 border border-white/20"
+            className="md:hidden p-2 text-lg text-white"
           >
             ☰
           </button>
@@ -93,11 +93,11 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="fixed top-24 left-6 right-6 z-40 
-  bg-white/10 backdrop-blur-2xl 
-  border border-white/20 
-  rounded-2xl p-6 
-  flex flex-col gap-4 text-center 
-  text-gray-200 shadow-xl shadow-black/40"
+              bg-white/10 backdrop-blur-2xl 
+              border border-white/20 
+              rounded-2xl p-6 
+              flex flex-col gap-4 text-center 
+              text-gray-200 shadow-xl shadow-black/40"
           >
             <a
               className="hover:text-white transition text-lg"
