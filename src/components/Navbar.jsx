@@ -13,17 +13,22 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
+      let current = "";
+
       links.forEach((link) => {
         const section = document.getElementById(link.id);
         if (!section) return;
 
         const rect = section.getBoundingClientRect();
 
-        if (rect.top <= 150 && rect.bottom >= 150) {
-          setActive(link.id);
+        if (rect.top <= 200 && rect.bottom >= 200) {
+          current = link.id;
         }
       });
+
+      setActive(current);
     };
+
     window.addEventListener("scroll", handleScroll);
     handleScroll();
 
@@ -50,6 +55,7 @@ export default function Navbar() {
               <a
                 key={link.id}
                 href={`#${link.id}`}
+                onClick={() => setOpen(false)}
                 className={`relative transition ${
                   active === link.id
                     ? "text-white"
@@ -97,6 +103,7 @@ export default function Navbar() {
               className="hover:text-white transition text-lg"
               href="#step1"
               onClick={() => setOpen(false)}
+              onClick={() => setOpen(false)}
             >
               Story
             </a>
@@ -104,12 +111,14 @@ export default function Navbar() {
               className="hover:text-white transition text-lg"
               href="#projects"
               onClick={() => setOpen(false)}
+              onClick={() => setOpen(false)}
             >
               Projects
             </a>
             <a
               className="hover:text-white transition text-lg"
               href="#contact"
+              onClick={() => setOpen(false)}
               onClick={() => setOpen(false)}
             >
               Contact
