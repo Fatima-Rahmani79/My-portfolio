@@ -1,30 +1,43 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const codeLines = [
-  "const developer = {",
-  "  name: 'Fatima Rahmani',",
-  "  role: 'Frontend Developer',",
-  "  skills: ['React', 'Tailwind'],",
-  "};",
-  "",
-  "function build() {",
-  "  return 'Clean & fast apps';",
-  "}",
-];
+const code = `const developer = {
+  name: 'Fatima Rahmani',
+  role: 'Frontend Developer',
+  skills: ['React', 'Tailwind'],
+};
+
+function build() {
+  return 'Clean & fast apps';
+}`;
 
 export default function Hero() {
-  const [lines, setLines] = useState([]);
+  const [text, setText] = useState("");
 
   useEffect(() => {
     let i = 0;
-    const interval = setInterval(() => {
-      setLines((prev) => [...prev, codeLines[i]]);
-      i++;
-      if (i >= codeLines.length) clearInterval(interval);
-    }, 800);
 
-    return () => clearInterval(interval);
+    const type = () => {
+      setText(code.slice(0, i));
+      i++;
+
+      let speed = 20;
+
+      if (code[i] === "\n") speed = 120;
+      else if (code[i] === " ") speed = 40;
+
+      if (i <= code.length) {
+        setTimeout(type, speed);
+      } else {
+        setTimeout(() => {
+          setText("");
+          i = 0;
+          type();
+        }, 3000);
+      }
+    };
+
+    type();
   }, []);
 
   const scrollToStory = () => {
@@ -96,7 +109,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 blur-2xl opacity-20 rounded-2xl"></div>
 
             {/* Code box */}
-            <div className="relative bg-black/70 border border-white/10 rounded-2xl p-6 backdrop-blur-xl shadow-2xl">
+            <div className="bg-black/70 border border-white/10 rounded-2xl p-6 backdrop-blur-xl shadow-2xl max-w-md">
               {/* fake window bar */}
               <div className="flex gap-2 mb-4">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -104,11 +117,9 @@ export default function Hero() {
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
 
-              <pre className="text-green-400 text-sm leading-relaxed">
-                {lines.map((line, i) => (
-                  <div key={i}>{line}</div>
-                ))}
-                <span className="animate-pulse">|</span>
+              <pre className="text-green-400 text-sm leading-relaxed whitespace-pre-wrap">
+                {text}
+                <span className="ml-1 animate-pulse text-white">|</span>
               </pre>
             </div>
           </div>
