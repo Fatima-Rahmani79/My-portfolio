@@ -10,7 +10,7 @@ export default function Step1() {
       <div className="absolute w-[500px] h-[500px] bg-indigo-600 opacity-10 blur-[140px] rounded-full left-[-100px] top-[-100px]" />
       <div className="absolute w-[400px] h-[400px] bg-violet-500 opacity-10 blur-[120px] rounded-full right-[-100px] bottom-[-100px]" />
 
-      <div className="max-w-6xl w-full mx-auto grid md:grid-cols-2 gap-12 items-center z-10">
+      <div className="max-w-6xl w-full mx-auto grid md:grid-cols-2 gap-40 items-center z-10">
         {/* LEFT TEXT */}
         <div>
           <motion.h2
@@ -43,7 +43,7 @@ export default function Step1() {
         {/* RIGHT VISUAL */}
         <div className="relative flex items-center justify-center">
           {/* ORBIT (dotted circle) */}
-          <div className="absolute w-[300px] h-[300px] border border-dashed border-indigo-400/20 rounded-full" />
+          <div className="absolute w-[300px] h-[300px] scale-75 md:scale-100 border border-dashed border-indigo-400/20 rounded-full" />
           <div className="absolute w-2 h-2 bg-violet-400 rounded-full top-12 left-20 blur-sm" />
           <div className="absolute w-2 h-2 bg-indigo-400 rounded-full bottom-16 right-16 blur-sm" />
 
@@ -54,7 +54,7 @@ export default function Step1() {
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ repeat: Infinity, duration: 6.5 }}
-            className="absolute top-6 left-1/2 -translate-x-1/2 
+            className="absolute top-6 left-1/2 -translate-x-1/2 scale-75 md:scale-100
               bg-white/5 backdrop-blur-xl 
               border border-indigo-400/30 
               p-6 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
@@ -77,7 +77,7 @@ export default function Step1() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 6 }}
-            className="absolute left-16 -translate-y-1/2 rotate-[-15deg]
+            className="absolute left-16 -translate-y-1/2 rotate-[-15deg] scale-75 md:scale-100
               bg-white/5 backdrop-blur-xl 
               border border-violet-400/30 
               p-6 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
@@ -100,7 +100,7 @@ export default function Step1() {
           <motion.div
             animate={{ y: [0, -2, 0] }}
             transition={{ repeat: Infinity, duration: 7 }}
-            className="absolute right-8 top-1/2 -translate-y-1/2 rotate-[12deg]
+            className="absolute right-8 top-1/2 -translate-y-1/2 rotate-[12deg] scale-75 md:scale-100
               bg-white/5 backdrop-blur-xl 
               border border-indigo-300/30 
               p-6 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
