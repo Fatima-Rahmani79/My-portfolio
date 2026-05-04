@@ -119,29 +119,42 @@ export default function Step2() {
             transition={{ delay: i * 0.2 }}
             viewport={{ once: true }}
             whileHover={{ y: -8 }}
-            className="group relative p-[1px] rounded-2xl bg-white/5 backdrop-blur-xl via-transparent to-violet-500/20 overflow-hidden"
+            className="group relative isolate z-0 p-[1px] rounded-2xl"
           >
-            {/* glow on hover */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-90 transition duration-300 bg-gradient-to-br from-blue-500/30 to-violet-400/30 blur-xl rounded-2xl"></div>
+            {/* glow */}
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 
+                bg-gradient-to-br from-indigo-500/30 to-violet-500/30 blur-xl rounded-2xl 
+                pointer-events-none"
+            />
 
-            {/* card content */}
-            <div className="relative backdrop-blur-xl border border-white/10 rounded-2xl p-6 h-full transition duration-300 group-hover:border-indigo-400/40">
-              {/* Icon */}
+            {/* card */}
+            <div
+              className="relative z-10 backdrop-blur-xl border border-white/10 
+                rounded-2xl p-6 h-full bg-white/5
+                transition duration-300 group-hover:border-indigo-400/40"
+            >
+              {/* ICON */}
               <div
-                className="flex items-center justify-center  
-                text-indigo-400 group-hover:text-white transition mb-2"
+                className="flex items-center justify-center mb-4 
+                  text-indigo-400 group-hover:text-white transition
+                  text-2xl"
               >
                 {card.icon}
               </div>
 
-              {/* title */}
+              {/* TITLE */}
               <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
 
-              {/* desc */}
+              {/* DESC */}
               <p className="text-gray-400 text-sm">{card.desc}</p>
 
-              {/* subtle bottom line */}
-              <div className="mt-6 h-[2px] w-0 bg-gradient-to-r from-indigo-400 to-violet-400 transition-all duration-500 group-hover:w-full"></div>
+              {/* LINE */}
+              <div
+                className="mt-6 h-[2px] w-0 bg-gradient-to-r 
+                  from-indigo-400 to-violet-400 
+                  transition-all duration-500 group-hover:w-full"
+              />
             </div>
           </motion.div>
         ))}
