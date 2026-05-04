@@ -56,11 +56,23 @@ export default function Step2() {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: i * 0.2 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white/5 backdrop-blur-lg border border-white/10 p-6 rounded-2xl shadow-lg"
+            whileHover={{ y: -8 }}
+            className="group relative p-[1px] rounded-2xl bg-gradient-to-br from-indigo-500/20 via-transparent to-violet-500/20"
           >
-            <h3 className="text-xl font-semibold">{card.title}</h3>
-            <p className="text-gray-400 mt-2">{card.desc}</p>
+            {/* glow on hover */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-indigo-500/30 to-violet-500/30 blur-xl rounded-2xl"></div>
+
+            {/* card content */}
+            <div className="relative bg-[#0B0B0F]/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 h-full transition duration-300 group-hover:border-indigo-400/40">
+              {/* title */}
+              <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
+
+              {/* desc */}
+              <p className="text-gray-400 text-sm">{card.desc}</p>
+
+              {/* subtle bottom line */}
+              <div className="mt-6 h-[2px] w-0 bg-gradient-to-r from-indigo-400 to-violet-400 transition-all duration-500 group-hover:w-full"></div>
+            </div>
           </motion.div>
         ))}
       </div>
