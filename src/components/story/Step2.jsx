@@ -8,8 +8,8 @@ const cards = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
+        width="2.9em"
+        height="2.9em"
         viewBox="0 0 24 24"
       >
         <title xmlns="">layout-outline</title>
@@ -28,8 +28,8 @@ const cards = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
+        width="2.9em"
+        height="2.9em"
         viewBox="0 0 24 24"
       >
         <title xmlns="">focus</title>
@@ -50,8 +50,8 @@ const cards = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
+        width="2.9em"
+        height="2.9em"
         viewBox="0 0 24 24"
       >
         <title xmlns="">style</title>
@@ -119,14 +119,21 @@ export default function Step2() {
             transition={{ delay: i * 0.2 }}
             viewport={{ once: true }}
             whileHover={{ y: -8 }}
-            className="group relative p-[1px] rounded-2xl bg-white/5 backdrop-blur-xl via-transparent to-violet-500/20"
+            className="group relative p-[1px] rounded-2xl bg-white/5 backdrop-blur-xl via-transparent to-violet-500/20 overflow-hidden"
           >
             {/* glow on hover */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-90 transition duration-300 bg-gradient-to-br from-blue-500/30 to-violet-400/30 blur-xl rounded-2xl"></div>
 
             {/* card content */}
             <div className="relative backdrop-blur-xl border border-white/10 rounded-2xl p-6 h-full transition duration-300 group-hover:border-indigo-400/40">
-              <p className="text-gray-400 text-lg ">{card.icon}</p>
+              {/* Icon */}
+              <div
+                className="flex items-center justify-center  
+                text-indigo-400 group-hover:text-white transition mb-2"
+              >
+                {card.icon}
+              </div>
+
               {/* title */}
               <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
 
