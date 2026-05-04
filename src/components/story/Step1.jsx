@@ -44,7 +44,14 @@ export default function Step1() {
         {/* RIGHT VISUAL */}
         <div className="relative flex items-center justify-center h-[260px] sm:h-[320px] md:h-[400px]">
           {/* ORBIT (dotted circle) */}
-          <div className="absolute w-[200px] sm:w-[260px] md:w-[300px] h-[200px] sm:h-[260px] md:h-[300px] border border-dashed border-indigo-400/20 rounded-full" />
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ repeat: Infinity, duration: 9, ease: "linear" }}
+            className="absolute w-[200px] sm:w-[260px] md:w-[300px] h-[200px] sm:h-[260px] md:h-[300px]"
+          >
+            {/* orbit */}
+            <div className="absolute inset-0 border-2 border-dashed border-indigo-400/20 rounded-full" />
+          </motion.div>
 
           <div className="absolute w-2 h-2 bg-violet-400 rounded-full top-12 left-20 blur-sm" />
           <div className="absolute w-2 h-2 bg-indigo-400 rounded-full bottom-16 right-16 blur-sm" />
@@ -78,7 +85,7 @@ export default function Step1() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 6 }}
-            className="absolute left-4 sm:left-10 md:left-16 top-1/2 -translate-y-1/2 
+            className="absolute left-4 sm:left-10 md:left-16 bottom-14 -translate-y-1/2 
               rotate-[-15deg] scale-75 sm:scale-90 md:scale-100
               bg-white/5 backdrop-blur-xl border border-violet-400/30 p-4 sm:p-6 rounded-2xl"
           >

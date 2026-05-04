@@ -8,9 +8,19 @@ const cards = [
 
 export default function Step2() {
   return (
-    <section className="h-screen flex flex-col items-center justify-center text-center bg-[#0B0B0F] text-white px-4 relative overflow-hidden">
-      {/* Glow background */}
-      <div className="absolute w-[400px] h-[400px] bg-blue-500 opacity-20 blur-[120px] rounded-full"></div>
+    <section className="min-h-screen flex flex-col items-center justify-center text-center bg-[#0B0B0F] text-white px-4 relative overflow-hidden">
+      {/* Glow */}
+      <div className="absolute w-[400px] h-[400px] bg-indigo-500/20 blur-[120px] rounded-full" />
+
+      {/* 👇 subtle transition hint */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="text-xs tracking-widest text-indigo-300 mb-4"
+      >
+        FROM CHAOS → TO CLARITY
+      </motion.div>
 
       {/* Title */}
       <motion.h2
@@ -20,7 +30,10 @@ export default function Step2() {
         viewport={{ once: true }}
         className="text-3xl md:text-5xl font-bold"
       >
-        I turn ideas into <span className="text-blue-400">clean UI</span>
+        I turn ideas into{" "}
+        <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+          clean UI
+        </span>
       </motion.h2>
 
       {/* Subtitle */}
@@ -31,7 +44,7 @@ export default function Step2() {
         viewport={{ once: true }}
         className="mt-6 text-gray-400 max-w-xl"
       >
-        I design interfaces that are simple, intuitive, and beautiful.
+        From messy thoughts to structured, scalable interfaces.
       </motion.p>
 
       {/* Cards */}
