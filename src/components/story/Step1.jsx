@@ -4,21 +4,22 @@ export default function Step1() {
   return (
     <section
       id="step1"
-      className="min-h-screen flex items-center justify-center bg-[#0B0B0F] text-white px-6 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center bg-[#0B0B0F] text-white px-4 sm:px-6 relative overflow-hidden"
     >
       {/* subtle background glow */}
-      <div className="absolute w-[500px] h-[500px] bg-indigo-600 opacity-10 blur-[140px] rounded-full left-[-100px] top-[-100px]" />
-      <div className="absolute w-[400px] h-[400px] bg-violet-500 opacity-10 blur-[120px] rounded-full right-[-100px] bottom-[-100px]" />
+      <div className="absolute w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-indigo-600 opacity-10 blur-[120px] rounded-full left-[-100px] top-[-100px]" />
+      <div className="absolute w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-violet-500 opacity-10 blur-[100px] rounded-full right-[-100px] bottom-[-100px]" />
 
-      <div className="max-w-6xl w-full mx-auto grid md:grid-cols-2 gap-40 items-center z-10">
+      {/* container */}
+      <div className="max-w-6xl w-full mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center z-10">
         {/* LEFT TEXT */}
-        <div>
+        <div className="text-center md:text-left">
           <motion.h2
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold leading-tight"
+            className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight"
           >
             Clients come with{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
@@ -31,33 +32,33 @@ export default function Step1() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             viewport={{ once: true }}
-            className="mt-6 text-gray-400 max-w-md"
+            className="mt-4 sm:mt-6 text-gray-400 text-sm sm:text-base max-w-md mx-auto md:mx-0"
           >
             Unclear requirements, scattered notes, and a lot of guesswork.
           </motion.p>
 
           {/* small accent line */}
-          <div className="mt-6 w-12 h-[2px] bg-gradient-to-r from-indigo-400 to-violet-400 rounded" />
+          <div className="mt-5 w-10 h-[2px] bg-gradient-to-r from-indigo-400 to-violet-400 rounded mx-auto md:mx-0" />
         </div>
 
         {/* RIGHT VISUAL */}
-        <div className="relative flex items-center justify-center">
+        <div className="relative flex items-center justify-center h-[260px] sm:h-[320px] md:h-[400px]">
           {/* ORBIT (dotted circle) */}
-          <div className="absolute w-[300px] h-[300px] scale-75 md:scale-100 border border-dashed border-indigo-400/20 rounded-full" />
+          <div className="absolute w-[200px] sm:w-[260px] md:w-[300px] h-[200px] sm:h-[260px] md:h-[300px] border border-dashed border-indigo-400/20 rounded-full" />
+
           <div className="absolute w-2 h-2 bg-violet-400 rounded-full top-12 left-20 blur-sm" />
           <div className="absolute w-2 h-2 bg-indigo-400 rounded-full bottom-16 right-16 blur-sm" />
 
           {/* CENTER GLOW */}
-          <div className="absolute w-[400px] h-[400px] bg-indigo-500/10 blur-3xl rounded-full" />
+          <div className="absolute w-[250px] sm:w-[320px] md:w-[400px] h-[250px] sm:h-[320px] md:h-[400px] bg-indigo-500/10 blur-3xl rounded-full" />
 
           {/* CARD 1 - Cloud */}
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ repeat: Infinity, duration: 6.5 }}
-            className="absolute top-6 left-1/2 -translate-x-1/2 scale-75 md:scale-100
-              bg-white/5 backdrop-blur-xl 
-              border border-indigo-400/30 
-              p-6 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+            className="absolute top-0 sm:top-4 md:top-6 left-1/2 -translate-x-1/2 
+              scale-75 sm:scale-90 md:scale-100
+              bg-white/5 backdrop-blur-xl border border-indigo-400/30 p-4 sm:p-6 rounded-2xl"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,14 +74,13 @@ export default function Step1() {
             </svg>
           </motion.div>
 
-          {/* CARD 2 - Think */}
+          {/* CARD 2 - Idea */}
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 6 }}
-            className="absolute left-16 -translate-y-1/2 rotate-[-15deg] scale-75 md:scale-100
-              bg-white/5 backdrop-blur-xl 
-              border border-violet-400/30 
-              p-6 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+            className="absolute left-4 sm:left-10 md:left-16 top-1/2 -translate-y-1/2 
+              rotate-[-15deg] scale-75 sm:scale-90 md:scale-100
+              bg-white/5 backdrop-blur-xl border border-violet-400/30 p-4 sm:p-6 rounded-2xl"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -104,6 +104,9 @@ export default function Step1() {
               bg-white/5 backdrop-blur-xl 
               border border-indigo-300/30 
               p-6 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+            className="absolute right-4 sm:right-10 md:right-10 top-1/2 -translate-y-1/2 
+              rotate-[12deg] scale-75 sm:scale-90 md:scale-100
+              bg-white/5 backdrop-blur-xl border border-indigo-300/30 p-4 sm:p-6 rounded-2xl"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
