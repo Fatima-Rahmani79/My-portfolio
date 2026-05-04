@@ -46,7 +46,7 @@ export default function Step1() {
           {/* ORBIT (dotted circle) */}
           <motion.div
             animate={{ rotate: 360 }}
-            transition={{ repeat: Infinity, duration: 9, ease: "linear" }}
+            transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
             className="absolute w-[200px] sm:w-[260px] md:w-[300px] h-[200px] sm:h-[260px] md:h-[300px]"
           >
             {/* orbit */}
