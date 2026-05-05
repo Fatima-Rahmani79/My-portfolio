@@ -8,22 +8,26 @@ const codeLines = [
   "};",
   "",
   "function buildApp() {",
-  "  return 'Clean UI ready 🚀';",
+  "  return 'UI Ready 🚀';",
   "}",
 ];
 
 export default function Step3() {
   const [displayedLines, setDisplayedLines] = useState([]);
-  const [done, setDone] = useState(false);
+  const [stage, setStage] = useState("typing");
+  // typing → building → done
 
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
       setDisplayedLines((prev) => [...prev, codeLines[i]]);
       i++;
+
       if (i >= codeLines.length) {
         clearInterval(interval);
-        setTimeout(() => setDone(true), 500);
+
+        setTimeout(() => setStage("building"), 600);
+        setTimeout(() => setStage("done"), 1800);
       }
     }, 300);
 
@@ -31,42 +35,79 @@ export default function Step3() {
   }, []);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center bg-[#0B0B0F] text-white px-4">
-      {/* Title */}
+    <section className="min-h-screen flex flex-col items-center justify-center bg-[#0B0B0F] text-white px-4">
+      {/* TITLE */}
       <motion.h2
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
-        className="text-3xl md:text-5xl font-bold"
+        className="text-3xl md:text-5xl font-bold text-center"
       >
-        Then I turn it into <span className="text-green-400">real product</span>
+        From code to{" "}
+        <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+          real product
+        </span>
       </motion.h2>
 
-      {/* Code block */}
+      {/* CODE */}
       <div className="mt-10 w-full max-w-xl">
         <div className="bg-black/70 border border-white/10 rounded-2xl p-6 text-left shadow-xl backdrop-blur">
-          <pre className="text-green-400 text-sm leading-relaxed font-mono">
+          <pre className="text-green-400 text-sm font-mono">
             {displayedLines.map((line, i) => (
               <div key={i}>{line}</div>
             ))}
 
-            {/* blinking cursor */}
-            {!done && (
+            {stage === "typing" && (
               <span className="inline-block w-2 h-4 bg-green-400 ml-1 animate-pulse"></span>
             )}
           </pre>
         </div>
 
-        {/* 👇 OUTPUT (خیلی مهم) */}
-        {done && (
+        {/* BUILDING */}
+        {stage === "building" && (
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-6 bg-white/5 border border-indigo-400/20 rounded-xl p-4 text-sm text-gray-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="mt-4 text-indigo-300 text-sm"
           >
-            ✅ UI Generated: Clean Dashboard Interface
+            ⚙️ Building interface...
           </motion.div>
         )}
       </div>
+
+      {/* 👇 UI OUTPUT */}
+      {stage === "done" && (
+        <motion.div
+          initial={{ opacity: 0, y: 60, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          className="mt-12 w-full max-w-md"
+        >
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur shadow-2xl">
+            {/* header */}
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-semibold">Habit Tracker</h3>
+              <span className="text-xs text-green-400">Live</span>
+            </div>
+
+            {/* tasks */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between bg-white/5 p-3 rounded-lg">
+                <span>Workout</span>
+                <div className="w-4 h-4 bg-green-400 rounded-full"></div>
+              </div>
+
+              <div className="flex items-center justify-between bg-white/5 p-3 rounded-lg">
+                <span>Read</span>
+                <div className="w-4 h-4 bg-gray-500 rounded-full"></div>
+              </div>
+
+              <div className="flex items-center justify-between bg-white/5 p-3 rounded-lg">
+                <span>Code</span>
+                <div className="w-4 h-4 bg-green-400 rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 }
