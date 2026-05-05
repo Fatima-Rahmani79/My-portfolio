@@ -19,7 +19,7 @@ export default function Step3() {
   });
 
   // 👉 scroll lock feeling
-  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.9, 1], [1, 1, 0]);
   const y = useTransform(scrollYProgress, [0, 1], [0, -80]);
 
   // 👉 typing based on scroll
@@ -27,8 +27,11 @@ export default function Step3() {
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (v) => {
-      const length = Math.floor(v * codeText.length * 1.2);
-      setText(codeText.slice(0, length));
+      const clamped = Math.min(
+        codeText.length,
+        Math.floor(v * codeText.length),
+      );
+      setText(codeText.slice(0, clamped));
     });
 
     return () => unsubscribe();
@@ -72,8 +75,8 @@ export default function Step3() {
             </div>
 
             {/* code */}
-            <div className="p-6 font-mono text-sm text-left text-green-400 whitespace-pre-wrap">
-              {highlight(text)}
+            <div className="p-6 font-mono text-sm text-left whitespace-pre-wrap">
+              <div dangerouslySetInnerHTML={{ __html: highlight(text) }} />
               <span className="animate-pulse text-indigo-400">|</span>
             </div>
           </div>
