@@ -37,7 +37,7 @@ export default function Step3() {
   }, [isInView]);
 
   return (
-    <section ref={ref} className="h-[200vh] bg-[#0B0B0F] text-white relative">
+    <section ref={ref} className=" bg-[#0B0B0F] text-white relative">
       <div className="sticky top-0 h-screen flex items-center justify-center px-6">
         <motion.div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
           {/* LEFT */}
