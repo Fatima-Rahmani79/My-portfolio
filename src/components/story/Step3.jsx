@@ -8,52 +8,65 @@ const codeLines = [
   "};",
   "",
   "function buildApp() {",
-  "  return 'Clean & scalable code';",
+  "  return 'Clean UI ready 🚀';",
   "}",
 ];
 
 export default function Step3() {
   const [displayedLines, setDisplayedLines] = useState([]);
+  const [done, setDone] = useState(false);
 
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
       setDisplayedLines((prev) => [...prev, codeLines[i]]);
       i++;
-      if (i >= codeLines.length) clearInterval(interval);
-    }, 400);
+      if (i >= codeLines.length) {
+        clearInterval(interval);
+        setTimeout(() => setDone(true), 500);
+      }
+    }, 300);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="h-screen flex flex-col items-center justify-center text-center bg-[#0B0B0F] text-white px-4">
+    <section className="min-h-screen flex flex-col items-center justify-center text-center bg-[#0B0B0F] text-white px-4">
       {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
         className="text-3xl md:text-5xl font-bold"
       >
-        Then I write{" "}
-        <span className="text-green-400">clean, scalable code</span>
+        Then I turn it into <span className="text-green-400">real product</span>
       </motion.h2>
 
-      {/* Code Block */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.4 }}
-        viewport={{ once: true }}
-        className="mt-10 bg-black/60 border border-white/10 rounded-2xl p-6 text-left w-full max-w-xl shadow-xl backdrop-blur"
-      >
-        <pre className="text-green-400 text-sm leading-relaxed">
-          {displayedLines.map((line, index) => (
-            <div key={index}>{line}</div>
-          ))}
-        </pre>
-      </motion.div>
+      {/* Code block */}
+      <div className="mt-10 w-full max-w-xl">
+        <div className="bg-black/70 border border-white/10 rounded-2xl p-6 text-left shadow-xl backdrop-blur">
+          <pre className="text-green-400 text-sm leading-relaxed font-mono">
+            {displayedLines.map((line, i) => (
+              <div key={i}>{line}</div>
+            ))}
+
+            {/* blinking cursor */}
+            {!done && (
+              <span className="inline-block w-2 h-4 bg-green-400 ml-1 animate-pulse"></span>
+            )}
+          </pre>
+        </div>
+
+        {/* 👇 OUTPUT (خیلی مهم) */}
+        {done && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-6 bg-white/5 border border-indigo-400/20 rounded-xl p-4 text-sm text-gray-300"
+          >
+            ✅ UI Generated: Clean Dashboard Interface
+          </motion.div>
+        )}
+      </div>
     </section>
   );
 }
