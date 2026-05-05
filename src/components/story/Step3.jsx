@@ -14,34 +14,35 @@ const codeLines = [
 
 export default function Step3() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.5 });
+  const isInView = useInView(ref, { amount: 0.5, once: true });
 
   const [lines, setLines] = useState([]);
+  const [done, setDone] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 80%", "end 20%"],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 1], [1.5, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 0.6], [0, -40]);
 
-  // typing effect (reset each time)
   useEffect(() => {
     if (!isInView) return;
 
-    setLines([]);
     let i = 0;
+    setLines([]);
+    setDone(false);
 
     const interval = setInterval(() => {
-      if (i >= codeLines.length) {
+      if (i < codeLines.length) {
+        setLines((prev) => [...prev, codeLines[i]]);
+        i++;
+      } else {
         clearInterval(interval);
-        return;
+        setDone(true);
       }
-
-      setLines((prev) => [...prev, codeLines[i]]);
-      i++;
-    }, 180);
+    }, 120);
 
     return () => clearInterval(interval);
   }, [isInView]);
@@ -68,7 +69,7 @@ export default function Step3() {
         className="mt-14 w-full max-w-3xl z-10"
       >
         <div className="rounded-2xl border border-white/10 bg-[#0D1117] shadow-2xl overflow-hidden">
-          {/* top bar */}
+          {/* VSCode top bar */}
           <div className="flex items-center gap-2 px-4 py-2 bg-[#161B22] border-b border-white/5">
             <span className="w-3 h-3 bg-red-500 rounded-full" />
             <span className="w-3 h-3 bg-yellow-500 rounded-full" />
@@ -91,12 +92,16 @@ export default function Step3() {
                 <div
                   key={i}
                   className="whitespace-pre"
-                  dangerouslySetInnerHTML={{ __html: highlight(line) }}
+                  dangerouslySetInnerHTML={{
+                    __html: line === "" ? "&nbsp;" : highlight(line),
+                  }}
                 />
               ))}
 
               {/* cursor */}
-              <span className="inline-block w-[8px] h-[18px] bg-indigo-400 ml-1 animate-pulse" />
+              {!done && (
+                <span className="inline-block w-[8px] h-[18px] bg-indigo-400 ml-1 animate-pulse" />
+              )}
             </div>
           </div>
         </div>
@@ -105,8 +110,10 @@ export default function Step3() {
   );
 }
 
-/* 🎨 fake syntax highlight */
+/* syntax highlight */
 function highlight(line) {
+  if (!line) return "";
+
   return line
     .replace(
       /(const|function|return)/g,
