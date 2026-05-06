@@ -4,6 +4,7 @@ import {
   useTransform,
   useMotionValue,
   useSpring,
+  useMotionTemplate,
 } from "framer-motion";
 import { useRef } from "react";
 
@@ -11,81 +12,90 @@ const projects = [
   {
     title: "Modern Dashboard",
     desc: "Clean UI with smooth interactions and scalable structure.",
-    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a",
+    image:
+      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "Landing Experience",
     desc: "Conversion-focused landing with strong visual hierarchy.",
-    image: "https://images.unsplash.com/photo-1547658719-da2b51169166",
+    image:
+      "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "Product Interface",
     desc: "Interactive UI built with performance and UX in mind.",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    image:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "Analytics Panel",
+    desc: "Data-rich interface with clean structure and clarity.",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
   },
 ];
 
 export default function ProjectsSection() {
-  const containerRef = useRef(null);
-
-  // progress indicator
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
   return (
-    <section
-      ref={containerRef}
-      className="projects-container bg-[#0B0B0F] text-white relative"
-    >
-      {/* 🔥 Progress line */}
-      <motion.div
-        style={{ scaleY: scrollYProgress }}
-        className="fixed right-6 top-0 w-[3px] h-full bg-gradient-to-b from-indigo-400 to-violet-500 origin-top z-50"
-      />
+    <section className="bg-[#0B0B0F] text-white py-24 px-6">
+      <div className="mx-auto max-w-6xl">
+        {/* HEADER */}
+        <div className="mb-12 text-center">
+          <p className="text-indigo-400 uppercase tracking-[0.3em] text-xs">
+            Selected Work
+          </p>
 
-      {projects.map((project, i) => (
-        <Project key={i} project={project} />
-      ))}
+          <h2 className="mt-3 text-3xl md:text-5xl font-semibold">
+            Projects Showcase
+          </h2>
+
+          <p className="mt-3 text-gray-400 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+            A compact grid layout focused on clarity, balance, and modern UI
+            feel.
+          </p>
+        </div>
+
+        {/* GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {projects.map((project, i) => (
+            <ProjectCard key={i} project={project} index={i + 1} />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
 
-function Project({ project }) {
+function ProjectCard({ project, index }) {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start center", "end center"],
+    offset: ["start end", "end start"],
   });
 
-  // 🎯 focus effect
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1, 0.3]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 0.5]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.97, 1, 0.97]);
   const blur = useTransform(scrollYProgress, [0, 0.5, 1], [6, 0, 6]);
+  const blurValue = useMotionTemplate`blur(${blur}px)`;
 
-  // 🎯 parallax mouse
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const smoothX = useSpring(x, { stiffness: 50, damping: 20 });
-  const smoothY = useSpring(y, { stiffness: 50, damping: 20 });
+  const smoothX = useSpring(x, { stiffness: 60, damping: 25 });
+  const smoothY = useSpring(y, { stiffness: 60, damping: 25 });
 
   const handleMouseMove = (e) => {
     const { innerWidth, innerHeight } = window;
-
-    const moveX = (e.clientX / innerWidth - 0.5) * 40;
-    const moveY = (e.clientY / innerHeight - 0.5) * 40;
-
-    x.set(moveX);
-    y.set(moveY);
+    x.set((e.clientX / innerWidth - 0.5) * 15);
+    y.set((e.clientY / innerHeight - 0.5) * 15);
   };
 
   return (
-    <section
+    <div
       ref={ref}
       onMouseMove={handleMouseMove}
-      className="project-section h-screen flex items-center justify-center relative"
+      className="relative group h-[380px] md:h-[420px] rounded-2xl overflow-hidden"
     >
       {/* IMAGE */}
       <motion.div
@@ -93,47 +103,50 @@ function Project({ project }) {
           x: smoothX,
           y: smoothY,
           opacity,
-          // filter: blur.to((b) => `blur(${b}px)`),
+          scale,
+          filter: blurValue,
         }}
-        className="absolute w-[80%] h-[70%] rounded-3xl overflow-hidden"
+        className="absolute inset-0"
       >
         <img
           src={project.image}
-          alt=""
           className="w-full h-full object-cover"
+          alt={project.title}
         />
-
-        {/* overlay */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/50" />
       </motion.div>
 
-      {/* TEXT */}
+      {/* CONTENT */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 w-full max-w-6xl grid md:grid-cols-2 gap-12 items-center px-6"
+        className="relative z-10 h-full flex items-end p-5 md:p-6"
       >
-        {/* LEFT */}
-        <div className="text-left">
-          <h2 className="text-4xl md:text-6xl font-bold leading-tight">
+        <div className="w-full max-w-sm">
+          <p className="text-xs tracking-[0.3em] text-indigo-300 uppercase">
+            Project {index}
+          </p>
+
+          <h3 className="mt-2 text-xl md:text-2xl font-semibold">
             {project.title}
-          </h2>
+          </h3>
 
-          <p className="mt-6 text-gray-400 text-lg max-w-md">{project.desc}</p>
+          <p className="mt-2 text-gray-300 text-sm leading-relaxed">
+            {project.desc}
+          </p>
 
-          <div className="mt-8 flex gap-4">
-            <button className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-xl hover:scale-105 transition">
+          <div className="mt-4 flex gap-3">
+            <button className="px-4 py-2 text-sm bg-indigo-500/90 rounded-lg hover:scale-105 transition">
               Live
             </button>
-
-            <button className="px-6 py-3 border border-white/20 rounded-xl hover:border-white/40 transition">
+            <button className="px-4 py-2 text-sm border border-white/20 rounded-lg hover:border-white/40 transition">
               Code
             </button>
           </div>
-        </div>
 
-        {/* RIGHT spacer چون تصویر absolute هست */}
-        <div />
+          {/* underline */}
+          <div className="mt-4 h-[1px] w-0 bg-gradient-to-r from-indigo-400 to-violet-400 group-hover:w-full transition-all duration-500" />
+        </div>
       </motion.div>
-    </section>
+    </div>
   );
 }
