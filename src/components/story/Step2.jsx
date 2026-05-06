@@ -73,7 +73,7 @@ export default function Step2() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center text-center bg-[#0B0B0F] text-white px-4 relative overflow-hidden">
       {/* Glow */}
-      <div className="absolute w-[350px] h-[350px] bg-indigo-500/20 blur-[100px] rounded-full" />
+      {/* <div className="absolute w-[350px] h-[350px] bg-indigo-500/20 blur-[100px] rounded-full" /> */}
 
       {/* 👇 subtle transition hint */}
       <motion.div
