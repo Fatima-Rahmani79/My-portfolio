@@ -110,21 +110,29 @@ function Project({ project }) {
       {/* TEXT */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 text-center max-w-xl"
+        className="relative z-10 w-full max-w-6xl grid md:grid-cols-2 gap-12 items-center px-6"
       >
-        <h2 className="text-3xl md:text-5xl font-bold">{project.title}</h2>
+        {/* LEFT */}
+        <div className="text-left">
+          <h2 className="text-4xl md:text-6xl font-bold leading-tight">
+            {project.title}
+          </h2>
 
-        <p className="mt-4 text-gray-300">{project.desc}</p>
+          <p className="mt-6 text-gray-400 text-lg max-w-md">{project.desc}</p>
 
-        <div className="mt-6 flex justify-center gap-4">
-          <button className="px-5 py-2 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-lg hover:scale-105 transition">
-            Live
-          </button>
+          <div className="mt-8 flex gap-4">
+            <button className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-xl hover:scale-105 transition">
+              Live
+            </button>
 
-          <button className="px-5 py-2 border border-white/20 rounded-lg hover:border-white/40 transition">
-            Code
-          </button>
+            <button className="px-6 py-3 border border-white/20 rounded-xl hover:border-white/40 transition">
+              Code
+            </button>
+          </div>
         </div>
+
+        {/* RIGHT spacer چون تصویر absolute هست */}
+        <div />
       </motion.div>
     </section>
   );
