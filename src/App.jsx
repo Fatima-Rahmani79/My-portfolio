@@ -1,5 +1,6 @@
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
+import ProjectsSection from "./components/ProjectsSection";
 import Step1 from "./components/story/Step1";
 import Step2 from "./components/story/Step2";
 import Step3 from "./components/story/Step3";
@@ -14,6 +15,7 @@ function App() {
       <Step2 />
       <Step3 />
       {/* <Step4 /> */}
+      <ProjectsSection />
     </div>
   );
 }
