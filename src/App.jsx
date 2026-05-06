@@ -16,6 +16,7 @@ function App() {
       <Step3 />
       {/* <Step4 /> */}
       <ProjectsSection />
+      <Step3 />
     </div>
   );
 }

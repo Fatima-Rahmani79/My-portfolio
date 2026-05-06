@@ -71,12 +71,12 @@ function ProjectCard({ project, index }) {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ["start 0.9", "start 0.2"],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1, 0.5]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.97, 1, 0.97]);
-  const blur = useTransform(scrollYProgress, [0, 0.5, 1], [6, 0, 6]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [0.98, 1]);
+  const blur = useTransform(scrollYProgress, [0, 1], [4, 0]);
   const blurValue = useMotionTemplate`blur(${blur}px)`;
 
   const x = useMotionValue(0);
