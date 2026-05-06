@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Step1 from "./components/story/Step1";
 import Step2 from "./components/story/Step2";
 import Step3 from "./components/story/Step3";
-import Step4 from "./components/story/Step4";
+// import Step4 from "./components/story/Step4";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Step1 />
       <Step2 />
       <Step3 />
-      <Step4 />
+      {/* <Step4 /> */}
     </div>
   );
 }
