@@ -31,7 +31,7 @@ export default function Step3() {
       setText(codeText.slice(0, i + 1));
       i++;
 
-      setTimeout(type, 15 + Math.random() * 35);
+      setTimeout(type, 10 + Math.random() * 35);
     };
 
     type();
@@ -63,9 +63,9 @@ export default function Step3() {
               transition={{ delay: 0.4 }}
               className="mt-5"
             >
-              <p className="text-sm text-gray-400">Not just code —</p>
+              <p className="text-lg text-white">Not just code —</p>
               <p className="text-lg font-semibold bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-                real products people interact with.
+                Real products people interact with.
               </p>
             </motion.div>
           </motion.div>
@@ -77,12 +77,11 @@ export default function Step3() {
               animate={
                 done
                   ? {
+                      scale: 1.05,
                       opacity: 0,
-                      scale: 0.9,
-                      y: -80,
-                      filter: "blur(12px)",
+                      filter: "blur(8px)",
                     }
-                  : { opacity: 1 }
+                  : {}
               }
               transition={{ duration: 0.7 }}
               className="absolute inset-0 rounded-2xl border border-white/10 bg-[#0D1117] shadow-2xl overflow-hidden"
@@ -106,7 +105,7 @@ export default function Step3() {
 
             {/* MINI WEBSITE */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.7, y: 60 }}
+              initial={{ opacity: 0, scale: 0.8, y: 60 }}
               animate={
                 done
                   ? {
@@ -116,21 +115,32 @@ export default function Step3() {
                     }
                   : {}
               }
-              transition={{ duration: 0.9, delay: 0.3 }}
-              className="absolute inset-0 bg-white text-black rounded-2xl overflow-hidden shadow-2xl"
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: "easeOut",
+              }}
+              className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl 
+             bg-[#0D1117] border border-white/10 backdrop-blur-xl"
             >
+              {/* subtle glow */}
+              <div className="absolute inset-0 bg-indigo-500/10 blur-2xl opacity-30" />
+
               {/* NAVBAR */}
-              <div className="flex justify-between items-center px-6 py-3 border-b">
-                <h3 className="font-bold">Brand</h3>
-                <div className="flex gap-4 text-sm">
-                  <span className="hover:text-indigo-500 cursor-pointer">
+              <div className="flex justify-between items-center px-6 py-4 border-b border-white/5">
+                <h3 className="font-semibold text-sm tracking-wide text-indigo-400">
+                  MyProduct
+                </h3>
+
+                <div className="flex gap-6 text-xs text-gray-400">
+                  <span className="hover:text-white transition cursor-pointer">
                     Home
                   </span>
-                  <span className="hover:text-indigo-500 cursor-pointer">
-                    About
+                  <span className="hover:text-white transition cursor-pointer">
+                    Features
                   </span>
-                  <span className="hover:text-indigo-500 cursor-pointer">
-                    Contact
+                  <span className="hover:text-white transition cursor-pointer">
+                    Pricing
                   </span>
                 </div>
               </div>
@@ -140,29 +150,38 @@ export default function Step3() {
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={done ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.5 }}
-                  className="text-2xl font-bold mb-3"
+                  transition={{ delay: 0.3 }}
+                  className="text-2xl md:text-3xl font-bold leading-snug"
                 >
-                  Build modern websites
+                  Build interfaces that{" "}
+                  <span className="text-transparent bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text">
+                    feel alive
+                  </span>
                 </motion.h1>
 
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={done ? { opacity: 1 } : {}}
-                  transition={{ delay: 0.6 }}
-                  className="text-gray-600 mb-4"
+                  transition={{ delay: 0.45 }}
+                  className="text-gray-400 mt-3 text-sm"
                 >
-                  Clean design. Smooth experience. Real impact.
+                  Smooth animations. Clean structure. Thoughtful UX.
                 </motion.p>
 
-                <motion.button
-                  initial={{ scale: 0 }}
-                  animate={done ? { scale: 1 } : {}}
-                  transition={{ delay: 0.7, type: "spring" }}
-                  className="self-start px-4 py-2 bg-indigo-600 text-white rounded-lg hover:scale-105 transition"
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={done ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.6 }}
+                  className="mt-6 flex gap-3"
                 >
-                  Get Started
-                </motion.button>
+                  <button className="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-violet-500 text-white text-sm hover:scale-105 transition">
+                    Get Started
+                  </button>
+
+                  <button className="px-4 py-2 rounded-lg border border-white/10 text-gray-300 text-sm hover:border-white/30 transition">
+                    Live Demo
+                  </button>
+                </motion.div>
               </div>
             </motion.div>
           </div>
