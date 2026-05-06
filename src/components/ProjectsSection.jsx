@@ -1,4 +1,10 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
 import { useRef } from "react";
 
 const projects = [
@@ -20,69 +26,106 @@ const projects = [
 ];
 
 export default function ProjectsSection() {
+  const containerRef = useRef(null);
+
+  // progress indicator
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
   return (
-    <section className="bg-[#0B0B0F] text-white">
+    <section
+      ref={containerRef}
+      className="projects-container bg-[#0B0B0F] text-white relative"
+    >
+      {/* 🔥 Progress line */}
+      <motion.div
+        style={{ scaleY: scrollYProgress }}
+        className="fixed right-6 top-0 w-[3px] h-full bg-gradient-to-b from-indigo-400 to-violet-500 origin-top z-50"
+      />
+
       {projects.map((project, i) => (
-        <Project key={i} project={project} index={i} />
+        <Project key={i} project={project} />
       ))}
     </section>
   );
 }
 
-function Project({ project, index }) {
+function Project({ project }) {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ["start center", "end center"],
   });
 
-  // 🎯 animations
-  const scale = useTransform(scrollYProgress, [0, 1], [0.85, 1.1]);
-  const opacity = useTransform(scrollYProgress, [0.2, 0.5, 0.8], [0, 1, 0]);
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  // 🎯 focus effect
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1, 0.3]);
+  const blur = useTransform(scrollYProgress, [0, 0.5, 1], [6, 0, 6]);
+
+  // 🎯 parallax mouse
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const smoothX = useSpring(x, { stiffness: 50, damping: 20 });
+  const smoothY = useSpring(y, { stiffness: 50, damping: 20 });
+
+  const handleMouseMove = (e) => {
+    const { innerWidth, innerHeight } = window;
+
+    const moveX = (e.clientX / innerWidth - 0.5) * 40;
+    const moveY = (e.clientY / innerHeight - 0.5) * 40;
+
+    x.set(moveX);
+    y.set(moveY);
+  };
 
   return (
     <section
       ref={ref}
-      className="h-[120vh] flex items-center justify-center relative"
+      onMouseMove={handleMouseMove}
+      className="project-section h-screen flex items-center justify-center relative"
     >
-      <div className="sticky top-0 h-screen flex items-center justify-center w-full">
-        {/* IMAGE */}
-        <motion.div
-          style={{ scale }}
-          className="absolute w-[80%] h-[70%] rounded-3xl overflow-hidden"
-        >
-          <img
-            src={project.image}
-            alt=""
-            className="w-full h-full object-cover"
-          />
+      {/* IMAGE */}
+      <motion.div
+        style={{
+          x: smoothX,
+          y: smoothY,
+          opacity,
+          // filter: blur.to((b) => `blur(${b}px)`),
+        }}
+        className="absolute w-[80%] h-[70%] rounded-3xl overflow-hidden"
+      >
+        <img
+          src={project.image}
+          alt=""
+          className="w-full h-full object-cover"
+        />
 
-          {/* overlay */}
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
-        </motion.div>
+        {/* overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+      </motion.div>
 
-        {/* TEXT */}
-        <motion.div
-          style={{ opacity, y }}
-          className="relative z-10 text-center max-w-xl"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold">{project.title}</h2>
+      {/* TEXT */}
+      <motion.div
+        style={{ opacity }}
+        className="relative z-10 text-center max-w-xl"
+      >
+        <h2 className="text-3xl md:text-5xl font-bold">{project.title}</h2>
 
-          <p className="mt-4 text-gray-300">{project.desc}</p>
+        <p className="mt-4 text-gray-300">{project.desc}</p>
 
-          <div className="mt-6 flex justify-center gap-4">
-            <button className="px-5 py-2 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-lg hover:scale-105 transition">
-              Live
-            </button>
+        <div className="mt-6 flex justify-center gap-4">
+          <button className="px-5 py-2 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-lg hover:scale-105 transition">
+            Live
+          </button>
 
-            <button className="px-5 py-2 border border-white/20 rounded-lg hover:border-white/40 transition">
-              Code
-            </button>
-          </div>
-        </motion.div>
-      </div>
+          <button className="px-5 py-2 border border-white/20 rounded-lg hover:border-white/40 transition">
+            Code
+          </button>
+        </div>
+      </motion.div>
     </section>
   );
 }

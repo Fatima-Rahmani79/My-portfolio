@@ -3,3 +3,11 @@
 html {
   scroll-behavior: smooth;
 }
+
+.projects-container {
+  scroll-snap-type: y mandatory;
+}
+
+.project-section {
+  scroll-snap-align: start;
+}
