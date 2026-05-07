@@ -10,28 +10,28 @@ import { useRef } from "react";
 
 const projects = [
   {
-    title: "Modern Dashboard",
-    desc: "Clean UI with smooth interactions and scalable structure.",
+    title: "Afghanistan Cities Culture",
+    desc: "A cultural exploration platform showcasing Afghan cities through immersive layouts, galleries, and storytelling-focused UI.",
     image:
-      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    title: "Landing Experience",
-    desc: "Conversion-focused landing with strong visual hierarchy.",
+    title: "GirlsCode.af",
+    desc: "A modern educational concept focused on empowering girls in technology with clean design and inspiring interactions.",
     image:
-      "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    title: "Product Interface",
-    desc: "Interactive UI built with performance and UX in mind.",
-    image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    title: "Analytics Panel",
-    desc: "Data-rich interface with clean structure and clarity.",
+    title: "Goal Tracker Dashboard",
+    desc: "Interactive productivity dashboard featuring progress tracking, structured layouts, and real-time visual feedback.",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    title: "NeoTechShop",
+    desc: "A futuristic e-commerce interface combining smooth user experience, responsive layouts, and modern product presentation.",
+    image:
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80",
   },
 ];
 
@@ -71,7 +71,7 @@ function ProjectCard({ project, index }) {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start 0.9", "start 0.2"],
+    offset: ["start 1", "end 0.4"],
   });
 
   const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
@@ -95,7 +95,7 @@ function ProjectCard({ project, index }) {
     <div
       ref={ref}
       onMouseMove={handleMouseMove}
-      className="relative group h-[380px] md:h-[420px] rounded-2xl overflow-hidden"
+      className="relative group h-[400px] md:h-[440px] rounded-2xl overflow-hidden"
     >
       {/* IMAGE */}
       <motion.div
@@ -110,10 +110,10 @@ function ProjectCard({ project, index }) {
       >
         <img
           src={project.image}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-100 group-hover:scale-105 transition duration-700"
           alt={project.title}
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700  blur-3xl" />
       </motion.div>
 
       {/* CONTENT */}
@@ -121,8 +121,8 @@ function ProjectCard({ project, index }) {
         style={{ opacity }}
         className="relative z-10 h-full flex items-end p-5 md:p-6"
       >
-        <div className="w-full max-w-sm">
-          <p className="text-xs tracking-[0.3em] text-indigo-300 uppercase">
+        <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-black/30 backdrop-blur-2xl backdrop-blur-xl p-6 shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
+          <p className="text-sm tracking-[0.3em] text-indigo-200 uppercase">
             Project {index}
           </p>
 
