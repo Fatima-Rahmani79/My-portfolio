@@ -10,28 +10,42 @@ import { useRef } from "react";
 
 const projects = [
   {
-    title: "Afghanistan Cities Culture",
-    desc: "A cultural exploration platform showcasing Afghan cities through immersive layouts, galleries, and storytelling-focused UI.",
-    image:
-      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    title: "GirlsCode.af",
-    desc: "A modern educational concept focused on empowering girls in technology with clean design and inspiring interactions.",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
     title: "Goal Tracker Dashboard",
     desc: "Interactive productivity dashboard featuring progress tracking, structured layouts, and real-time visual feedback.",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+
+    live: "https://goal-tracker-dashboard.onrender.com/",
+    code: "https://github.com/Fatima-Rahmani79/goal-tracker-dashboard",
   },
+
   {
     title: "NeoTechShop",
     desc: "A futuristic e-commerce interface combining smooth user experience, responsive layouts, and modern product presentation.",
     image:
       "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80",
+
+    live: "https://fatima-rahmani79.github.io/NeoTechShop/",
+    code: "https://github.com/Fatima-Rahmani79/NeoTechShop",
+  },
+  {
+    title: "Afghanistan Cities Culture",
+    desc: "A cultural exploration platform showcasing Afghan cities through immersive layouts, galleries, and storytelling-focused UI.",
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80",
+
+    live: "https://fatima-rahmani79.github.io/afghanistan-cities-culture/",
+    code: "https://github.com/Fatima-Rahmani79/afghanistan-cities-culture",
+  },
+
+  {
+    title: "GirlsCode.af",
+    desc: "A modern educational concept focused on empowering girls in technology with clean design and inspiring interactions.",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+
+    live: "https://fatima-rahmani79.github.io/GirlsCode.af/",
+    code: "https://github.com/Fatima-Rahmani79/GirlsCode.af",
   },
 ];
 
@@ -135,12 +149,23 @@ function ProjectCard({ project, index }) {
           </p>
 
           <div className="mt-4 flex gap-3">
-            <button className="px-4 py-2 text-sm bg-indigo-500/90 rounded-lg hover:scale-105 transition">
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 text-sm bg-indigo-500/90 rounded-lg hover:scale-105 transition"
+            >
               Live
-            </button>
-            <button className="px-4 py-2 text-sm border border-white/20 rounded-lg hover:border-white/40 transition">
+            </a>
+
+            <a
+              href={project.code}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 text-sm border border-white/20 rounded-lg hover:border-white/40 transition"
+            >
               Code
-            </button>
+            </a>
           </div>
 
           {/* underline */}
