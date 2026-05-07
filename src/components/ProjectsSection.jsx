@@ -84,9 +84,9 @@ function ProjectCard({ project, index }) {
     offset: ["start 1", "end 0.4"],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
-  const scale = useTransform(scrollYProgress, [0, 1], [0.98, 1]);
-  const blur = useTransform(scrollYProgress, [0, 1], [4, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.1, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1]);
+  const blur = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const blurValue = useMotionTemplate`blur(${blur}px)`;
 
   const x = useMotionValue(0);
@@ -120,7 +120,7 @@ function ProjectCard({ project, index }) {
       >
         <img
           src={project.image}
-          className="w-full h-full object-cover scale-100 group-hover:scale-105 transition duration-700"
+          className="w-full h-full object-fit scale-100 group-hover:scale-102 transition duration-700"
           alt={project.title}
         />
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700  blur-3xl" />
@@ -144,6 +144,7 @@ function ProjectCard({ project, index }) {
             {project.desc}
           </p>
 
+          {/* Buttons */}
           <div className="mt-4 flex gap-3">
             <a
               href={project.live}
