@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
   { id: "step1", label: "Story" },
+  { id: "about", label: "About" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
@@ -99,30 +100,16 @@ export default function Navbar() {
               flex flex-col gap-4 text-center 
               text-gray-200 shadow-xl shadow-black/40"
           >
-            <a
-              className="hover:text-white transition text-lg"
-              href="#step1"
-              onClick={() => setOpen(false)}
-              onClick={() => setOpen(false)}
-            >
-              Story
-            </a>
-            <a
-              className="hover:text-white transition text-lg"
-              href="#projects"
-              onClick={() => setOpen(false)}
-              onClick={() => setOpen(false)}
-            >
-              Projects
-            </a>
-            <a
-              className="hover:text-white transition text-lg"
-              href="#contact"
-              onClick={() => setOpen(false)}
-              onClick={() => setOpen(false)}
-            >
-              Contact
-            </a>
+            {links.map((link) => (
+              <a
+                key={link.id}
+                className="hover:text-white transition text-lg"
+                href={`#${link.id}`}
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>

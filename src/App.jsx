@@ -1,5 +1,6 @@
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
+import About from "./components/About";
 import ProjectsSection from "./components/ProjectsSection";
 import SkillsSection from "./components/SkillsSection";
 import Step1 from "./components/story/Step1";
@@ -12,6 +13,7 @@ function App() {
     <div>
       <Navbar />
       <Hero />
+      <About />
       <Step1 />
       <Step2 />
       <Step3 />
