@@ -124,7 +124,83 @@ export default function Contact() {
             </span>
           </div>
         </motion.div>
-      </div>
+
+        {/* Main */}
+        <div className="mt-20 grid drid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8 items-start">
+          {/* Left Side */}
+          <motion.div
+            initial={{ opacity: 0, x: -35 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="grid gap-4"
+          >
+            {contacts.map((item, index) => {
+              const Icon = item.icon;
+
+              return (
+                <a
+                  key={index}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferre"
+                  className="
+                        group relative overflow-hidden rounded-[1.7rem] border border-white/10 bg-black-20 backdrop-blur-xl p-5 transition-all duration-500 hover:border-white/20 hover:bg-black/30
+                    "
+                >
+                  {/* glow */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-indigo-500/10 to-transparent pointer-events-none" />
+
+                  <div className="relative z-10 flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-2xl bg-white/[0.05] border border-white/10 flex items-center justify-center">
+                          <Icon size={20} className="text-indigo-300" />
+                        </div>
+
+                        <div>
+                          <p className="text-sm text-gray-400">{item.title}</p>
+
+                          <p className="text-white text-sm md:text-base mt-1">
+                            {item.value}
+                          </p>
+                        </div>
+                    </div>
+
+                      <div
+                        size={18}
+                        className="
+                        text-gray-500
+                        transition-transform duration-300
+                        group-hover:translate-x-1
+                        group-hover:-translate-y-1
+                      "
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="1em"
+                          height="1em"
+                          viewBox="0 0 26 26"
+                        >
+                          <title xmlns="">arrow-up-right-circle</title>
+                          <g
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                          >
+                            <path d="M10.852 8.952a.5.5 0 0 1 .543-.453l5.186.472a.5.5 0 0 1-.09.996l-5.186-.472a.5.5 0 0 1-.453-.543" />
+                            <path d="M17.052 15.152a.5.5 0 0 1-.543-.453l-.471-5.185a.5.5 0 0 1 .995-.09l.472 5.185a.5.5 0 0 1-.453.543" />
+                            <path d="M16.354 9.65a.5.5 0 0 1 0 .708l-6.536 6.535a.5.5 0 0 1-.707-.707l6.535-6.536a.5.5 0 0 1 .707 0" />
+                            <path d="M13 24.5c6.351 0 11.5-5.149 11.5-11.5S19.351 1.5 13 1.5S1.5 6.649 1.5 13S6.649 24.5 13 24.5m0 1c6.904 0 12.5-5.596 12.5-12.5S19.904.5 13 .5S.5 6.096.5 13S6.096 25.5 13 25.5" />
+                          </g>
+                        </svg>
+                      </div>
+
+                  </div>
+                </a>
+              );
+            })}
+          </motion.div>
+        </div>
     </section>
   );
 }
