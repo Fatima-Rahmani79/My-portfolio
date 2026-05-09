@@ -1,98 +1,211 @@
 import { motion } from "framer-motion";
 
 const highlights = [
-  {
-    title: "Clean design",
-    text: "Interfaces that feel modern, polished, and easy to use.",
-  },
-  {
-    title: "Fast performance",
-    text: "Optimized React experiences with fluid interactions.",
-  },
-  {
-    title: "Real impact",
-    text: "Building products that solve real problems for users.",
-  },
+  "Responsive Interfaces",
+  "Modern UI Motion",
+  "React & Tailwind",
+  "Clean Architecture",
 ];
 
 export default function About() {
   return (
-    <section id="about" className="min-h-screen bg-[#0B0B0F] text-white px-6 py-24">
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="about"
+      className="relative overflow-hidden bg-[#0B0B0F] text-white px-6 py-28"
+    >
+      {/* ambient glow */}
+      <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-indigo-500/10 blur-[140px] rounded-full pointer-events-none" />
+
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-violet-500/10 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="relative max-w-6xl mx-auto">
+        {/* HEADER */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center md:text-left"
+          className="max-w-2xl"
         >
-          <p className="text-indigo-400 text-sm tracking-[0.35em] uppercase mb-4">
+          <p className="text-indigo-400 text-xs tracking-[0.35em] uppercase">
             About Me
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold">
-            I build thoughtful frontend experiences with a strong visual polish.
+
+          <h2 className="mt-5 text-4xl md:text-5xl font-semibold leading-tight">
+            Building modern interfaces
+            <br />
+            that feel smooth, fast, and intentional.
           </h2>
-          <p className="mt-6 text-gray-400 max-w-3xl">
-            I am a frontend developer focused on crafting clean, responsive user
-            interfaces. I love turning bold ideas into interactive web experiences
-            that feel fast, engaging, and easy to use.
+
+          <p className="mt-6 text-gray-400 leading-relaxed">
+            I create immersive frontend experiences focused on interaction,
+            motion, and visual clarity — blending clean code with polished UI
+            design.
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-10 xl:grid-cols-[1.6fr_1fr] items-start">
+        {/* MAIN GRID */}
+        <div className="mt-20 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 items-start">
+          {/* LEFT SIDE */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -35 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="space-y-6 text-gray-300"
+            className="space-y-6"
           >
-            <p>
-              My work bridges clean code, smooth motion, and strong aesthetic
-              structure. I enjoy collaborating with teams, refining UI flows, and
-              creating products that users understand instantly.
-            </p>
-            <p>
-              I specialize in React-powered pages and component-driven design,
-              with a focus on performance, accessibility, and polished visual
-              details.
-            </p>
-            <div className="grid gap-4 sm:grid-cols-2">
+            {/* glass card */}
+            <div
+              className="
+                relative
+                overflow-hidden
+                rounded-[2rem]
+                border border-white/10
+                bg-black/20
+                backdrop-blur-xl
+                p-7 md:p-8
+                shadow-[0_20px_80px_rgba(0,0,0,0.35)]
+                transition-all duration-500
+                hover:border-white/20
+                hover:bg-black/30
+              "
+            >
+              {/* glow */}
+              <div
+                className="
+                  absolute
+                  inset-0
+                  opacity-0
+                  hover:opacity-100
+                  transition
+                  duration-700
+                  bg-gradient-to-br
+                  from-indigo-500/10
+                  to-transparent
+                  pointer-events-none
+                "
+              />
+
+              <div className="relative z-10">
+                <p className="text-sm uppercase tracking-[0.3em] text-indigo-300">
+                  Philosophy
+                </p>
+
+                <p className="mt-5 text-gray-300 leading-relaxed">
+                  My approach combines clean structure, thoughtful motion, and
+                  modern visual systems to create interfaces that feel intuitive
+                  and engaging.
+                </p>
+
+                <p className="mt-5 text-gray-400 leading-relaxed">
+                  I enjoy transforming ideas into polished digital products with
+                  strong attention to interaction details, responsiveness, and
+                  user experience flow.
+                </p>
+              </div>
+            </div>
+
+            {/* pills */}
+            <div className="flex flex-wrap gap-3">
               {highlights.map((item) => (
-                <div key={item.title} className="rounded-3xl border border-white/10 bg-white/5 p-5">
-                  <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                  <p className="text-gray-400 text-sm">{item.text}</p>
+                <div
+                  key={item}
+                  className="
+                    rounded-full
+                    border border-white/10
+                    bg-white/[0.04]
+                    backdrop-blur-xl
+                    px-4 py-2
+                    text-sm text-gray-300
+                    transition-all duration-300
+                    hover:border-white/20
+                    hover:bg-white/[0.08]
+                  "
+                >
+                  {item}
                 </div>
               ))}
             </div>
           </motion.div>
 
+          {/* RIGHT SIDE */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 35 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-2xl shadow-black/20"
+            transition={{ duration: 0.8, delay: 0.25 }}
+            className="
+              relative
+              overflow-hidden
+              rounded-[2rem]
+              border border-white/10
+              bg-black/20
+              backdrop-blur-xl
+              p-8
+              shadow-[0_20px_80px_rgba(0,0,0,0.35)]
+            "
           >
-            <h3 className="text-xl font-semibold mb-4">What I bring to the table</h3>
-            <div className="space-y-4 text-gray-300">
-              <div>
-                <p className="text-sm uppercase tracking-[0.25em] text-indigo-400 mb-2">
-                  Experience
-                </p>
-                <p>React, Tailwind, responsive layouts, and polished UI interactions.</p>
-              </div>
-              <div>
-                <p className="text-sm uppercase tracking-[0.25em] text-indigo-400 mb-2">
-                  Approach
-                </p>
-                <p>Design-first development with accessible, maintainable component code.</p>
-              </div>
-              <div>
-                <p className="text-sm uppercase tracking-[0.25em] text-indigo-400 mb-2">
-                  Goal
-                </p>
-                <p>Create websites that feel fast, clear, and enjoyable to use.</p>
+            {/* glow */}
+            <div
+              className="
+                absolute
+                inset-0
+                bg-gradient-to-br
+                from-violet-500/10
+                to-transparent
+                pointer-events-none
+              "
+            />
+
+            <div className="relative z-10">
+              <p className="text-sm uppercase tracking-[0.3em] text-indigo-300">
+                Focus Areas
+              </p>
+
+              <div className="mt-8 space-y-7">
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-white">Frontend Development</span>
+                    <span className="text-gray-400 text-sm">90%</span>
+                  </div>
+
+                  <div className="h-2 rounded-full bg-white/5 overflow-hidden">
+                    <div className="h-full w-[90%] rounded-full bg-gradient-to-r from-indigo-500 to-violet-500" />
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-white">UI / UX Design</span>
+                    <span className="text-gray-400 text-sm">85%</span>
+                  </div>
+
+                  <div className="h-2 rounded-full bg-white/5 overflow-hidden">
+                    <div className="h-full w-[85%] rounded-full bg-gradient-to-r from-indigo-500 to-violet-500" />
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-white">Motion & Interaction</span>
+                    <span className="text-gray-400 text-sm">80%</span>
+                  </div>
+
+                  <div className="h-2 rounded-full bg-white/5 overflow-hidden">
+                    <div className="h-full w-[80%] rounded-full bg-gradient-to-r from-indigo-500 to-violet-500" />
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-white">Responsive Design</span>
+                    <span className="text-gray-400 text-sm">95%</span>
+                  </div>
+
+                  <div className="h-2 rounded-full bg-white/5 overflow-hidden">
+                    <div className="h-full w-[95%] rounded-full bg-gradient-to-r from-indigo-500 to-violet-500" />
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
