@@ -6,6 +6,7 @@ import SkillsSection from "./components/SkillsSection";
 import Step1 from "./components/story/Step1";
 import Step2 from "./components/story/Step2";
 import Step3 from "./components/story/Step3";
+import Contact from "./components/Contact";
 // import Step4 from "./components/story/Step4";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       {/* <Step4 /> */}
       <ProjectsSection />
       <SkillsSection />
+      <Contact />
     </div>
   );
 }
