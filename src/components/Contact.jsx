@@ -89,7 +89,7 @@ export default function Contact() {
       className="relative overflow-hidden bg-[#0B0B0F] text-white px-6 py-28"
     >
       {/* Ambient glow */}
-      <div className="absolute top-0 left1/3 w-[500px] h-[500px] bg-indigo-500 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left1/3 w-[500px] h-[500px] bg-indigo-500/10 blur-[140px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto">
         {/* Header */}
@@ -109,6 +109,20 @@ export default function Contact() {
             <br />
             meaningful together.
           </h2>
+
+          <p className="mt-6 text-gray-400 leading-relaxed">
+            Open to freelance projects, collaborations, and modern frontend
+            experiences focused on clean interaction and thoughtful design.
+          </p>
+
+          {/* Availability */}
+          <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 backdrop-blur-xl">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+
+            <span className="text-sm text-gray-300">
+              Available for selected collaborations
+            </span>
+          </div>
         </motion.div>
       </div>
     </section>
