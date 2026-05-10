@@ -7,6 +7,8 @@ import Step1 from "./components/story/Step1";
 import Step2 from "./components/story/Step2";
 import Step3 from "./components/story/Step3";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+
 // import Step4 from "./components/story/Step4";
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
       <ProjectsSection />
       <SkillsSection />
       <Contact />
+      <Footer />
     </div>
   );
 }

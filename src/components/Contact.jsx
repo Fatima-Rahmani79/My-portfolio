@@ -19,7 +19,7 @@ const contacts = [
     icon: FaLinkedin,
     title: "LinkedIn",
     value: "Connect professionally",
-    link: "https://www.linkedin.com/",
+    link: "https://linkedin.com/in/fatima-rahmani-556320365",
   },
 ];
 
