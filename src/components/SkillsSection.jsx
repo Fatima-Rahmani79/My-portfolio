@@ -123,6 +123,48 @@ const skills = [
     ),
     color: "from-orange-500 to-red-500",
   },
+  {
+    name: "Next.js",
+    level: 82,
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 128 128"
+      >
+        <circle cx="64" cy="64" r="64" fill="#000" />
+        <path
+          fill="#fff"
+          d="M106.7 112.1L49.3 38H38v52h9V49.4l52.4 67.7c2.6-1.5 5-3.2 7.3-5"
+        />
+        <path fill="#fff" d="M78 38h9v52h-9z" />
+      </svg>
+    ),
+    color: "from-white to-gray-400",
+  },
+  {
+    name: "Bootstrap",
+    level: 80,
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 256 256"
+      >
+        <path
+          fill="#7952B3"
+          d="M48 40C48 26.745 58.745 16 72 16h112c13.255 0 24 10.745 24 24v176c0 13.255-10.745 24-24 24H72c-13.255 0-24-10.745-24-24z"
+        />
+        <path
+          fill="#fff"
+          d="M86 72h52c30 0 46 14 46 36c0 15-9 26-23 31v1c18 3 29 16 29 35c0 26-20 41-55 41H86zm29 56c16 0 24-6 24-18c0-11-8-17-23-17h-1v35zm4 67c18 0 27-7 27-21c0-13-9-20-27-20h-4v41z"
+        />
+      </svg>
+    ),
+    color: "from-violet-500 to-purple-500",
+  },
 ];
 
 export default function SkillsSection() {
@@ -152,7 +194,7 @@ export default function SkillsSection() {
         </div>
 
         {/* GRID */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-4">
           {skills.map((skill, i) => (
             <motion.div
               key={i}

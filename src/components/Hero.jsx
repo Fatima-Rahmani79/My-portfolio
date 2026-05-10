@@ -82,8 +82,8 @@ export default function Hero() {
             transition={{ delay: 0.2 }}
             className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-gray-400 sm:text-base lg:mx-0"
           >
-            I build fast, clean and scalable web apps with React, Tailwind, and
-            smooth interactions.
+            I build fast, scalable and modern web apps with React, Next.js,
+            Tailwind, and smooth interactions.
           </motion.p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
