@@ -60,11 +60,7 @@ export default function Navbar() {
     <>
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4">
-        <div
-          className="max-w-6xl mx-auto flex items-center justify-between 
-        bg-white/10 backdrop-blur-2xl border border-white/20 
-        rounded-2xl px-6 py-3 shadow-lg"
-        >
+        <div className="max-w-6xl mx-auto flex items-center justify-between bg-[#090b14]/95 backdrop-blur-2xl border border-white/10 rounded-2xl px-5 py-3 shadow-xl shadow-black/20">
           {/* Logo */}
           <div className="text-lg text-white font-semibold tracking-wide">
             <a href="#">Fatima Rahmani</a>
@@ -113,12 +109,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-24 left-6 right-6 z-40 
-              bg-white/10 backdrop-blur-2xl 
-              border border-white/20 
-              rounded-2xl p-6 
-              flex flex-col gap-4 text-center 
-              text-gray-200 shadow-xl shadow-black/40"
+            className="fixed top-24 left-6 right-6 z-40 bg-[#090b14]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 flex flex-col gap-4 text-center text-gray-200 shadow-xl shadow-black/40"
           >
             {links.map((link) => (
               <a

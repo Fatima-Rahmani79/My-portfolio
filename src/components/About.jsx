@@ -14,9 +14,9 @@ export default function About() {
       className="relative overflow-hidden bg-[#0B0B0F] text-white px-6 py-28"
     >
       {/* ambient glow */}
-      <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-indigo-500/10 blur-[140px] rounded-full pointer-events-none" />
+      {/* <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-indigo-500/10 blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-violet-500/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-violet-500/10 blur-[120px] rounded-full pointer-events-none" /> */}
 
       <div className="relative max-w-6xl mx-auto">
         {/* HEADER */}

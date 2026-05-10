@@ -44,8 +44,8 @@ export default function ProjectsSection() {
       id="projects"
       className="relative overflow-hidden bg-[#0B0B0F] px-6 py-24 text-white"
     >
-      <div className="pointer-events-none absolute left-[-120px] top-[10%] h-[320px] w-[320px] rounded-full bg-indigo-600/10 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-[-120px] right-[-120px] h-[280px] w-[280px] rounded-full bg-violet-500/10 blur-[120px]" />{" "}
+      {/* <div className="pointer-events-none absolute left-[-120px] top-[10%] h-[320px] w-[320px] rounded-full bg-indigo-600/10 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-[-120px] right-[-120px] h-[280px] w-[280px] rounded-full bg-violet-500/10 blur-[120px]" /> */}
       <div className="relative mx-auto max-w-6xl">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <p className="text-xs uppercase tracking-[0.35em] text-indigo-300">
@@ -137,9 +137,9 @@ function ProjectCard({ project, index }) {
           className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/12 to-transparent" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/12 to-transparent" />
 
-        <div className="absolute inset-0 bg-indigo-500/10 opacity-0 transition duration-700 group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-indigo-500/10 opacity-0 transition duration-700 group-hover:opacity-100" /> */}
       </div>
 
       <div className="relative z-10 flex h-full items-end p-4 sm:p-2 md:p-3">

@@ -129,10 +129,10 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      className="relative overflow-hidden bg-[#050816] text-white py-24 px-6"
+      className="relative overflow-hidden bg-[#0B0B0F] text-white py-24 px-6"
     >
       {/* background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(79,70,229,0.18),transparent_60%)]" />
+      {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(79,70,229,0.18),transparent_60%)]" /> */}
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* HEADER */}
@@ -164,7 +164,7 @@ export default function SkillsSection() {
               className="group relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 overflow-hidden transition"
             >
               {/* glow */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-white/[0.04] to-transparent" />
+              {/* <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-white/[0.04] to-transparent" /> */}
 
               {/* icon + title */}
               <div className="relative z-10 flex items-center gap-3">

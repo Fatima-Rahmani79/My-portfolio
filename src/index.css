@@ -1,7 +1,139 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: dark;
+  --bg: #06070f;
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-strong: rgba(255, 255, 255, 0.08);
+  --surface-border: rgba(255, 255, 255, 0.12);
+  --text: #e8ebff;
+  --muted: #a5b4fc;
+  --accent: #6366f1;
+  --accent-soft: #8b5cf6;
+  --shadow: 0 30px 90px rgba(8, 11, 30, 0.35);
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    radial-gradient(
+      circle at top left,
+      rgba(99, 102, 241, 0.14),
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(139, 92, 246, 0.1),
+      transparent 18%
+    );
+  pointer-events: none;
+}
+
+section {
+  position: relative;
+  background: transparent;
+}
+
+.section-card {
+  border: 1px solid var(--surface-border);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+  border-radius: 2rem;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.section-title {
+  color: #f8fbff;
+}
+
+.section-subtitle {
+  color: #a5b4fc;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  padding: 0.9rem 1.6rem;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 18px 50px rgba(99, 102, 241, 0.2);
+  transition:
+    transform 0.22s ease,
+    opacity 0.22s ease;
+}
+
+.button-primary:hover {
+  transform: translateY(-1px);
+}
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 1rem;
+  padding: 0.9rem 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.05);
+  color: #d1d5db;
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.button-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
 }
 
 .projects-container {

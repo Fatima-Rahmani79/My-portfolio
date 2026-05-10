@@ -27,10 +27,10 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#0B0B0F] px-6 py-24 text-white"
+      className="relative overflow-hidden bg-[#06070f] px-6 py-24 text-white"
     >
-      <div className="pointer-events-none absolute top-0 left-1/3 h-[500px] w-[500px] rounded-full bg-indigo-500/10 blur-[140px]" />
-      <div className="pointer-events-none absolute bottom-0 right-1/4 h-[400px] w-[400px] rounded-full bg-violet-500/10 blur-[120px]" />
+      {/* <div className="pointer-events-none absolute top-0 left-1/3 h-[500px] w-[500px] rounded-full bg-indigo-500/10 blur-[140px]" />
+      <div className="pointer-events-none absolute bottom-0 right-1/4 h-[400px] w-[400px] rounded-full bg-violet-500/10 blur-[120px]" /> */}
 
       <div className="relative mx-auto max-w-6xl">
         <motion.div

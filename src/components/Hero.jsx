@@ -50,12 +50,12 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-[#0B0B0F] text-white px-6 relative overflow-hidden">
-      <div className="pointer-events-none absolute left-[-120px] top-[-120px] h-[380px] w-[380px] rounded-full bg-indigo-600/20 blur-[150px]" />
-      <div className="pointer-events-none absolute bottom-[-120px] right-[-120px] h-[320px] w-[320px] rounded-full bg-violet-500/20 blur-[140px]" />
+    <section className="min-h-screen flex items-center justify-center bg-[#06070f] text-white px-6 relative overflow-hidden">
+      <div className="pointer-events-none absolute left-[-120px] top-[-120px] h-[420px] w-[420px] rounded-full bg-indigo-600/18 blur-[150px]" />
+      <div className="pointer-events-none absolute bottom-[-120px] right-[-120px] h-[340px] w-[340px] rounded-full bg-violet-500/18 blur-[140px]" />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
-        <div className="max-w-xl text-center lg:text-left">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.08fr_.92fr] lg:gap-18">
+        <div className="max-w-2xl text-center lg:text-left">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ export default function Hero() {
           <motion.h1
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
+            className="text-5xl font-bold leading-[1.05] sm:text-6xl lg:text-7xl"
           >
             Hi, I'm{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
@@ -115,17 +115,17 @@ export default function Hero() {
           transition={{ delay: 0.25 }}
           className="flex justify-center"
         >
-          <div className="relative w-full max-w-[520px]">
+          <div className="relative w-full max-w-[560px]">
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500/20 to-violet-500/20 blur-2xl opacity-30" />
 
-            <div className="relative rounded-3xl border border-white/10 bg-white/[0.04] p-5 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
-              <div className="mb-4 flex gap-2">
+            <div className="relative rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:p-7">
+              <div className="mb-5 flex gap-2">
                 <span className="h-3 w-3 rounded-full bg-red-500" />
                 <span className="h-3 w-3 rounded-full bg-yellow-500" />
                 <span className="h-3 w-3 rounded-full bg-green-500" />
               </div>
 
-              <pre className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-sky-300">
+              <pre className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-sky-300 sm:text-[15px]">
                 {text}
                 <span className="ml-1 animate-pulse text-white">|</span>
               </pre>
