@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { id: "step1", label: "Story" },
   { id: "about", label: "About" },
+  { id: "step1", label: "Story" },
   { id: "projects", label: "Projects" },
+  { id: "skills", label: "Skills" },
   { id: "contact", label: "Contact" },
 ];
 

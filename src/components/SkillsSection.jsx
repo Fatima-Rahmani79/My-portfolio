@@ -127,7 +127,10 @@ const skills = [
 
 export default function SkillsSection() {
   return (
-    <section className="relative overflow-hidden bg-[#050816] text-white py-24 px-6">
+    <section
+      id="skills"
+      className="relative overflow-hidden bg-[#050816] text-white py-24 px-6"
+    >
       {/* background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(79,70,229,0.18),transparent_60%)]" />
 

@@ -43,7 +43,7 @@ const projects = [
 
 export default function ProjectsSection() {
   return (
-    <section className="bg-[#0B0B0F] text-white py-28 px-6">
+    <section id="projects" className="bg-[#0B0B0F] text-white py-28 px-6">
       <div className="max-w-6xl mx-auto">
         {/* HEADER */}
         <div className="text-center mb-16">
