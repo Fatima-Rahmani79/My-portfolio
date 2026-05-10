@@ -15,7 +15,6 @@ const projects = [
     live: "https://goal-tracker-dashboard.onrender.com/",
     code: "https://github.com/Fatima-Rahmani79/goal-tracker-dashboard",
   },
-
   {
     title: "NeoTechShop",
     desc: "Modern e-commerce experience focused on smooth interactions and responsive layouts.",
@@ -23,7 +22,6 @@ const projects = [
     live: "https://fatima-rahmani79.github.io/NeoTechShop/",
     code: "https://github.com/Fatima-Rahmani79/NeoTechShop",
   },
-
   {
     title: "Afghanistan Cities Culture",
     desc: "Cultural storytelling platform showcasing Afghan cities through immersive UI design.",
@@ -31,7 +29,6 @@ const projects = [
     live: "https://fatima-rahmani79.github.io/afghanistan-cities-culture/",
     code: "https://github.com/Fatima-Rahmani79/afghanistan-cities-culture",
   },
-
   {
     title: "GirlsCode.af",
     desc: "Educational concept empowering girls in technology with modern interface design.",
@@ -43,26 +40,29 @@ const projects = [
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="bg-[#0B0B0F] text-white py-28 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* HEADER */}
-        <div className="text-center mb-16">
-          <p className="text-indigo-400 uppercase tracking-[0.35em] text-xs">
+    <section
+      id="projects"
+      className="relative overflow-hidden bg-[#0B0B0F] px-6 py-24 text-white"
+    >
+      <div className="pointer-events-none absolute left-[-120px] top-[10%] h-[320px] w-[320px] rounded-full bg-indigo-600/10 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-[-120px] right-[-120px] h-[280px] w-[280px] rounded-full bg-violet-500/10 blur-[120px]" />{" "}
+      <div className="relative mx-auto max-w-6xl">
+        <div className="mx-auto mb-14 max-w-2xl text-center">
+          <p className="text-xs uppercase tracking-[0.35em] text-indigo-300">
             Selected Work
           </p>
 
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold">
+          <h2 className="mt-4 text-3xl font-semibold sm:text-4xl md:text-5xl">
             Projects Showcase
           </h2>
 
-          <p className="mt-4 max-w-2xl mx-auto text-gray-400 leading-relaxed">
+          <p className="mt-4 leading-relaxed text-gray-400">
             A collection of interfaces focused on interaction, visual clarity,
             and modern user experience.
           </p>
         </div>
 
-        {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+        <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index + 1} />
           ))}
@@ -75,17 +75,14 @@ export default function ProjectsSection() {
 function ProjectCard({ project, index }) {
   const ref = useRef(null);
 
-  // scroll reveal
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start 0.95", "end 0.35"],
   });
 
   const opacity = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
-
   const scale = useTransform(scrollYProgress, [0, 1], [0.96, 1]);
 
-  // mouse tilt
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
 
@@ -100,16 +97,14 @@ function ProjectCard({ project, index }) {
   });
 
   const handleMouseMove = (e) => {
-    const rect = ref.current.getBoundingClientRect();
-
-    const width = rect.width;
-    const height = rect.height;
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect) return;
 
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
-    const rotateYValue = ((mouseX - width / 2) / width) * 10;
-    const rotateXValue = -((mouseY - height / 2) / height) * 10;
+    const rotateYValue = ((mouseX - rect.width / 2) / rect.width) * 10;
+    const rotateXValue = -((mouseY - rect.height / 2) / rect.height) * 10;
 
     rotateX.set(rotateXValue);
     rotateY.set(rotateYValue);
@@ -133,136 +128,44 @@ function ProjectCard({ project, index }) {
         transformPerspective: 1200,
         transformStyle: "preserve-3d",
       }}
-      className="
-        relative
-        h-[400px]
-        md:h-[460px]
-        rounded-3xl
-        overflow-hidden
-        border
-        border-white/10
-        bg-[#111]
-        group
-        will-change-transform
-        transform-gpu
-      "
+      className="group relative h-[380px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] will-change-transform transform-gpu md:h-[440px]"
     >
-      {/* IMAGE */}
-      <div className="absolute inset-0 rounded-3xl overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden rounded-3xl">
         <img
           src={project.image}
           alt={project.title}
-          className="
-            w-full
-            h-full
-            object-cover
-            object-top
-            transition-transform
-            duration-700
-            group-hover:scale-[1.02]
-          "
+          className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
         />
 
-        {/* overlay */}
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-black/50
-            via-black/15
-            to-transparent
-          "
-        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/12 to-transparent" />
 
-        {/* glow */}
-        <div
-          className="
-            absolute
-            inset-0
-            opacity-0
-            group-hover:opacity-100
-            transition
-            duration-700
-            bg-indigo-500/10
-          "
-        />
+        <div className="absolute inset-0 bg-indigo-500/10 opacity-0 transition duration-700 group-hover:opacity-100" />
       </div>
 
-      {/* CONTENT */}
-      <div className="relative z-10 h-full flex items-end p-5 md:p-6">
-        <div
-          className="
-            relative
-            isolate
-            w-full
-            max-w-sm
-            rounded-2xl
-            border
-            border-white/10
-            bg-black/20
-            backdrop-blur-xl
-            overflow-hidden
-            p-6
-            shadow-[0_20px_80px_rgba(0,0,0,0.45)]
-          "
-        >
-          {/* glass effect */}
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-br
-              from-white/10
-              via-white/5
-              to-transparent
-              pointer-events-none
-            "
-          />
+      <div className="relative z-10 flex h-full items-end p-4 sm:p-2 md:p-3">
+        <div className="relative isolate w-full max-w-[380px] overflow-hidden rounded-2xl border border-white/10 bg-black/20 p-5 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-md hover:backdrop-blur-2xl sm:p-6">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent" />
+          <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
 
-          {/* border glow */}
-          <div
-            className="
-              absolute
-              inset-0
-              rounded-2xl
-              ring-1
-              ring-white/10
-              pointer-events-none
-            "
-          />
-
-          {/* content */}
           <div className="relative z-10">
-            <p className="text-xs tracking-[0.35em] text-indigo-200 uppercase">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-indigo-200">
               Project {index}
             </p>
 
-            <h3 className="mt-3 text-2xl md:text-3xl font-semibold leading-tight">
+            <h3 className="mt-3 text-xl font-semibold leading-tight md:text-2xl">
               {project.title}
             </h3>
 
-            <p className="mt-3 text-gray-300 text-sm leading-relaxed">
+            <p className="mt-3 text-sm leading-relaxed text-gray-300">
               {project.desc}
             </p>
 
-            {/* buttons */}
             <div className="mt-5 flex gap-3">
               <a
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="
-                  px-4
-                  py-2
-                  text-sm
-                  rounded-lg
-                  bg-gradient-to-r
-                  from-indigo-500
-                  to-violet-500
-                  hover:scale-105
-                  transition
-                "
+                className="rounded-lg bg-gradient-to-r from-indigo-500 to-violet-500 px-4 py-2 text-sm transition hover:scale-105"
               >
                 Live
               </a>
@@ -271,36 +174,13 @@ function ProjectCard({ project, index }) {
                 href={project.code}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="
-                  px-4
-                  py-2
-                  text-sm
-                  rounded-lg
-                  border
-                  border-white/20
-                  hover:border-white/40
-                  hover:bg-white/5
-                  transition
-                "
+                className="rounded-lg border border-white/20 px-4 py-2 text-sm transition hover:border-white/40 hover:bg-white/5"
               >
                 Code
               </a>
             </div>
 
-            {/* underline */}
-            <div
-              className="
-                mt-5
-                h-[1px]
-                w-0
-                bg-gradient-to-r
-                from-indigo-400
-                to-violet-400
-                group-hover:w-full
-                transition-all
-                duration-500
-              "
-            />
+            <div className="mt-5 h-[1px] w-0 bg-gradient-to-r from-indigo-400 to-violet-400 transition-all duration-500 group-hover:w-full" />
           </div>
         </div>
       </div>

@@ -67,7 +67,7 @@ export default function Navbar() {
         >
           {/* Logo */}
           <div className="text-lg text-white font-semibold tracking-wide">
-            Fatima Rahmani
+            <a href="#">Fatima Rahmani</a>
           </div>
 
           {/* Links */}
