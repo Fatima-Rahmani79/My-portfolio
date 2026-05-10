@@ -16,48 +16,58 @@ export default function Hero() {
 
   useEffect(() => {
     let i = 0;
+    let timeoutId;
 
     const type = () => {
+      if (i > code.length) return;
+
       setText(code.slice(0, i));
-      i++;
+      const currentChar = code[i - 1];
 
       let speed = 20;
+      if (currentChar === "\n") speed = 120;
+      else if (currentChar === " ") speed = 40;
 
-      if (code[i] === "\n") speed = 120;
-      else if (code[i] === " ") speed = 40;
-
-      if (i <= code.length) {
-        setTimeout(type, speed);
-      } else {
-        setTimeout(() => {
-          setText("");
-          i = 0;
-          type();
-        }, 3000);
-      }
+      i += 1;
+      timeoutId = window.setTimeout(type, speed);
     };
 
     type();
+
+    return () => window.clearTimeout(timeoutId);
   }, []);
 
   const scrollToStory = () => {
-    document.getElementById("step1")?.scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById("process")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const scrollToProjects = () => {
+    document
+      .getElementById("projects")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-[#0B0B0F] text-white px-6 relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute w-[600px] h-[600px] bg-indigo-600 opacity-30 blur-[160px] rounded-full pointer-events-none top-[-100px] left-[-100px]" />
-      <div className="absolute w-[400px] h-[400px] bg-violet-500 opacity-30 blur-[140px] rounded-full pointer-events-none bottom-[-100px] right-[-100px]" />
+      <div className="pointer-events-none absolute left-[-120px] top-[-120px] h-[380px] w-[380px] rounded-full bg-indigo-600/20 blur-[150px]" />
+      <div className="pointer-events-none absolute bottom-[-120px] right-[-120px] h-[320px] w-[320px] rounded-full bg-violet-500/20 blur-[140px]" />
 
-      {/* CONTAINER */}
-      <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16 z-10">
-        {/* LEFT */}
-        <div className="flex-1 max-w-xl text-center md:text-left">
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
+        <div className="max-w-xl text-center lg:text-left">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold leading-tight"
+            className="mb-4 text-xs uppercase tracking-[0.35em] text-indigo-300"
+          >
+            Frontend Developer
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
           >
             Hi, I'm{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
@@ -67,57 +77,55 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="mt-6 text-gray-400 text-lg max-w-md"
+            transition={{ delay: 0.2 }}
+            className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-gray-400 sm:text-base lg:mx-0"
           >
-            I build fast, clean & scalable web apps for real users.
+            I build fast, clean and scalable web apps with React, Tailwind, and
+            smooth interactions.
           </motion.p>
 
-          {/* Buttons */}
-          <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+          <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
             <motion.button
               onClick={scrollToStory}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-xl shadow-lg hover:shadow-indigo-500/30 transition"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-6 py-3 text-sm font-medium shadow-lg shadow-indigo-500/20 transition"
             >
               Start Experience →
             </motion.button>
 
-            <button className="px-6 py-3 border border-white/20 rounded-xl hover:bg-white/5 transition">
+            <button
+              onClick={scrollToProjects}
+              className="rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm text-gray-200 transition hover:bg-white/10"
+            >
               View Projects
             </button>
           </div>
 
-          {/* Scroll hint */}
-          <div className="mt-12 text-sm text-gray-500 hidden md:block">
+          <div className="mt-10 hidden text-sm text-gray-500 lg:block">
             ↓ Scroll to explore
           </div>
         </div>
 
-        {/* RIGHT - CODE */}
         <motion.div
-          initial={{ opacity: 0, x: 80 }}
+          initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.5 }}
-          className="flex-1 flex justify-center"
+          transition={{ delay: 0.25 }}
+          className="flex justify-center"
         >
-          <div className="relative w-full max-w-md">
-            {/* Glow behind code */}
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-violet-500 blur-2xl opacity-20 rounded-2xl"></div>
+          <div className="relative w-full max-w-[520px]">
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500/20 to-violet-500/20 blur-2xl opacity-30" />
 
-            {/* Code box */}
-            <div className="bg-white/6 border border-white/10 rounded-2xl p-6 backdrop-blur-xl shadow-2xl max-w-md">
-              {/* fake window bar */}
-              <div className="flex gap-2 mb-4">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+            <div className="relative rounded-3xl border border-white/10 bg-white/[0.04] p-5 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
+              <div className="mb-4 flex gap-2">
+                <span className="h-3 w-3 rounded-full bg-red-500" />
+                <span className="h-3 w-3 rounded-full bg-yellow-500" />
+                <span className="h-3 w-3 rounded-full bg-green-500" />
               </div>
 
-              <pre className="text-blue-300 text-sm leading-relaxed whitespace-pre-wrap">
+              <pre className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-sky-300">
                 {text}
                 <span className="ml-1 animate-pulse text-white">|</span>
               </pre>
