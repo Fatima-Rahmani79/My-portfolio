@@ -13,11 +13,6 @@ export default function About() {
       id="about"
       className="relative overflow-hidden bg-[#0B0B0F] text-white px-6 py-28"
     >
-      {/* ambient glow */}
-      {/* <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-indigo-500/10 blur-[140px] rounded-full pointer-events-none" />
-
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-violet-500/10 blur-[120px] rounded-full pointer-events-none" /> */}
-
       <div className="relative max-w-6xl mx-auto">
         {/* HEADER */}
         <motion.div
@@ -25,7 +20,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-2xl"
+          className=" text-center"
         >
           <p className="text-indigo-400 text-xs tracking-[0.35em] uppercase">
             About Me
@@ -63,7 +58,7 @@ export default function About() {
                 border border-white/10
                 bg-black/20
                 backdrop-blur-xl
-                p-7 md:p-8
+                p-7 md:p-9
                 shadow-[0_20px_80px_rgba(0,0,0,0.35)]
                 transition-all duration-500
                 hover:border-white/20
@@ -87,17 +82,17 @@ export default function About() {
               />
 
               <div className="relative z-10">
-                <p className="text-sm uppercase tracking-[0.3em] text-indigo-300">
+                <p className="text-md uppercase tracking-[0.3em] text-indigo-300">
                   Philosophy
                 </p>
 
-                <p className="mt-5 text-gray-300 leading-relaxed">
+                <p className="mt-6 text-xl text-gray-300 leading-relaxed">
                   My approach combines clean structure, thoughtful motion, and
                   modern visual systems to create interfaces that feel intuitive
                   and engaging.
                 </p>
 
-                <p className="mt-5 text-gray-400 leading-relaxed">
+                <p className="mt-6 text-gray-400 leading-relaxed">
                   I enjoy transforming ideas into polished digital products with
                   strong attention to interaction details, responsiveness, and
                   user experience flow.
@@ -111,6 +106,7 @@ export default function About() {
                 <div
                   key={item}
                   className="
+                    mt-1.5
                     rounded-full
                     border border-white/10
                     bg-white/[0.04]
@@ -209,6 +205,17 @@ export default function About() {
               </div>
             </div>
           </motion.div>
+        </div>
+
+        <div className="mt-14 flex flex-wrap justify-center ">
+          <a
+            href="/resume.pdf"
+            download
+            className="button-primary inline-flex items-center gap-2"
+          >
+            Download Resume
+            <span className="text-base">⬇</span>
+          </a>
         </div>
       </div>
     </section>
