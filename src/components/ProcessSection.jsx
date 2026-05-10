@@ -215,7 +215,7 @@ export default function ProcessSection() {
                 </span>
               </h3>
 
-              <p className="text-start mx-auto mt-4 max-w-xl text-sm leading-relaxed text-gray-400 sm:text-base">
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-gray-400 sm:text-base">
                 From messy thoughts to structured, scalable interfaces.
               </p>
             </div>
