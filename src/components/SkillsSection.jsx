@@ -1,7 +1,4 @@
 import { motion } from "framer-motion";
-// import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt } from "react-icons/fa";
-
-// import { SiTailwindcss } from "react-icons/si";
 
 const skills = [
   {
@@ -68,7 +65,7 @@ const skills = [
   },
   {
     name: "React",
-    level: 90,
+    level: 80,
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +84,7 @@ const skills = [
   },
   {
     name: "Tailwind CSS",
-    level: 90,
+    level: 70,
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +103,7 @@ const skills = [
   },
   {
     name: "Git",
-    level: 85,
+    level: 80,
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +142,7 @@ const skills = [
   },
   {
     name: "Bootstrap",
-    level: 80,
+    level: 70,
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -202,11 +199,10 @@ export default function SkillsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: i * 0.08 }}
               viewport={{ once: true }}
-              whileHover={{ y: -4 }}
-              className="group relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 overflow-hidden transition"
+              className="group relative hover:translate-y-0.5 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 overflow-hidden transition"
             >
               {/* glow */}
-              {/* <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-white/[0.04] to-transparent" /> */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-white/[0.04] to-transparent" />
 
               {/* icon + title */}
               <div className="relative z-10 flex items-center gap-3">
