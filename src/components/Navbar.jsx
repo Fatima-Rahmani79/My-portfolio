@@ -15,23 +15,42 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      let current = "";
+      const scrollY = window.scrollY;
+      const offset = 180;
 
-      links.forEach((link) => {
+      let currentSection = "";
+
+      links.forEach((link, index) => {
         const section = document.getElementById(link.id);
+
         if (!section) return;
 
-        const rect = section.getBoundingClientRect();
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
 
-        if (rect.top <= 200 && rect.bottom >= 200) {
-          current = link.id;
+        // last section fix
+        if (index === links.length - 1) {
+          if (
+            window.innerHeight + window.scrollY >=
+            document.body.offsetHeight - 50
+          ) {
+            currentSection = link.id;
+          }
+        } else {
+          if (
+            scrollY >= sectionTop - offset &&
+            scrollY < sectionTop + sectionHeight - offset
+          ) {
+            currentSection = link.id;
+          }
         }
       });
 
-      setActive(current);
+      setActive(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
+
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
