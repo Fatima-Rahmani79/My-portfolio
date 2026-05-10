@@ -110,17 +110,17 @@ export default function ProcessSection() {
               </p>
             </div>
 
-            <div className="relative flex h-[220px] items-center justify-center sm:h-[260px]">
-              <motion.div
+            <div className="relative flex h-[200px] items-center justify-center sm:h-[240px]">
+              {/* <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ repeat: Infinity, duration: 26, ease: "linear" }}
                 className="absolute h-[180px] w-[180px] sm:h-[220px] sm:w-[220px]"
               >
                 <div className="absolute inset-0 rounded-full border-2 border-dashed border-indigo-400/20" />
-              </motion.div>
+              </motion.div> */}
 
               <motion.div
-                animate={{ y: [0, -8, 0] }}
+                animate={{ y: [0, -2, 0] }}
                 transition={{ repeat: Infinity, duration: 6.5 }}
                 className="absolute top-0 left-1/2 -translate-x-1/2 rounded-2xl border border-indigo-400/30 bg-white/5 p-3 backdrop-blur-xl sm:p-4"
               >
@@ -128,9 +128,9 @@ export default function ProcessSection() {
               </motion.div>
 
               <motion.div
-                animate={{ y: [0, 10, 0] }}
+                animate={{ y: [0, 3, 0] }}
                 transition={{ repeat: Infinity, duration: 6 }}
-                className="absolute left-4 bottom-10 rounded-2xl border border-violet-400/30 bg-white/5 p-3 backdrop-blur-xl sm:left-8 sm:p-4"
+                className="absolute left-4 bottom-10 rounded-2xl border rotate-[-10deg] border-violet-400/30 bg-white/5 p-3 backdrop-blur-xl sm:left-16 sm:p-4"
               >
                 <LightbulbIcon />
               </motion.div>
@@ -138,7 +138,7 @@ export default function ProcessSection() {
               <motion.div
                 animate={{ y: [0, -2, 0] }}
                 transition={{ repeat: Infinity, duration: 7 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 rotate-[12deg] rounded-2xl border border-indigo-300/30 bg-white/5 p-3 backdrop-blur-xl sm:right-8 sm:p-4"
+                className="absolute right-4 top-1/2 -translate-y-1/2 rotate-[12deg] rounded-2xl border border-indigo-300/30 bg-white/5 p-3 backdrop-blur-xl sm:right-10 sm:p-4"
               >
                 <FileIcon />
               </motion.div>
@@ -331,8 +331,8 @@ function CloudIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="2.2em"
-      height="2.2em"
+      width="3em"
+      height="3em"
       viewBox="0 0 16 16"
     >
       <path
@@ -347,8 +347,8 @@ function LightbulbIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="2.2em"
-      height="2.2em"
+      width="3em"
+      height="3em"
       viewBox="0 0 32 32"
     >
       <path
@@ -363,8 +363,8 @@ function FileIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="2.2em"
-      height="2.2em"
+      width="3em"
+      height="3em"
       viewBox="0 0 20 20"
     >
       <path
