@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const code = `const developer = {
   name: 'Fatima Rahmani',
   role: 'Frontend Developer',
-  skills: ['React', 'Tailwind'],
+  skills: ['React', 'Next.js', 'Tailwind'],
 };
 
 function build() {
@@ -15,123 +15,268 @@ export default function Hero() {
   const [text, setText] = useState("");
 
   useEffect(() => {
-    let i = 0;
-    let timeoutId;
+    let currentIndex = 0;
+    let timeout;
 
-    const type = () => {
-      if (i > code.length) return;
+    const typeCode = () => {
+      if (currentIndex > code.length) return;
 
-      setText(code.slice(0, i));
-      const currentChar = code[i - 1];
+      setText(code.slice(0, currentIndex));
 
-      let speed = 20;
-      if (currentChar === "\n") speed = 120;
-      else if (currentChar === " ") speed = 40;
+      const currentChar = code[currentIndex - 1];
 
-      i += 1;
-      timeoutId = window.setTimeout(type, speed);
+      let speed = 18;
+
+      if (currentChar === "\n") speed = 90;
+      else if (currentChar === " ") speed = 28;
+
+      currentIndex += 1;
+
+      timeout = window.setTimeout(typeCode, speed);
     };
 
-    type();
+    typeCode();
 
-    return () => window.clearTimeout(timeoutId);
+    return () => window.clearTimeout(timeout);
   }, []);
 
-  const scrollToStory = () => {
-    document
-      .getElementById("process")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
-  const scrollToProjects = () => {
-    document
-      .getElementById("projects")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#06070f] text-white">
-      <div className="absolute left-[-120px] top-[-120px] h-[420px] w-[420px] rounded-full bg-indigo-600/18 blur-[150px]" />
-      <div className="absolute bottom-[-120px] right-[-120px] h-[340px] w-[340px] rounded-full bg-violet-500/18 blur-[140px]" />
+    <section
+      className="
+        relative overflow-hidden bg-[#06070f] text-white
+      "
+    >
+      {/* background glow */}
+      <div className="pointer-events-none absolute left-[-140px] top-[-140px] h-[420px] w-[420px] rounded-full bg-indigo-600/15 blur-[140px]" />
 
-      <div className="relative mx-auto max-w-6xl px-6 pt-28 pb-16 sm:px-8 sm:pt-36 sm:pb-24 md:pt-40 md:pb-28 lg:min-h-screen lg:flex lg:items-center lg:justify-between lg:gap-16 lg:py-24">
-        <div className="max-w-2xl text-center lg:text-left mb-10 lg:mb-0 lg:max-w-xl">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-4 text-xs uppercase tracking-[0.35em] text-indigo-300"
-          >
-            Frontend Developer
-          </motion.p>
+      <div className="pointer-events-none absolute bottom-[-140px] right-[-140px] h-[360px] w-[360px] rounded-full bg-violet-500/15 blur-[140px]" />
 
-          <motion.h1
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl font-bold leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            Hi, I'm{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-              Fatima
-            </span>{" "}
-            👋
-          </motion.h1>
+      {/* container */}
+      <div
+        className="
+          relative mx-auto max-w-7xl px-6
 
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-gray-400 sm:text-base lg:mx-0"
-          >
-            I build fast, scalable and modern web apps with React, Next.js,
-            Tailwind, and smooth interactions.
-          </motion.p>
+          pt-28 pb-16
+          sm:px-8 sm:pt-32 sm:pb-20
+          md:pt-36 md:pb-24
+          lg:min-h-screen lg:px-10 lg:py-24
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
-            <motion.button
-              onClick={scrollToStory}
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              className="rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-6 py-3 text-sm font-medium shadow-lg shadow-indigo-500/20 transition"
-            >
-              Start Experience →
-            </motion.button>
+          flex items-center
+        "
+      >
+        <div
+          className="
+            grid w-full items-center
+            gap-14
 
-            <button
-              onClick={scrollToProjects}
-              className="rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm text-gray-200 transition hover:bg-white/10"
-            >
-              View Projects
-            </button>
-          </div>
-
-          <div className="mt-10 hidden text-sm text-gray-500 lg:block">
-            ↓ Scroll to explore
-          </div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.25 }}
-          className="flex justify-center lg:justify-end"
+            lg:grid-cols-[1.05fr_.95fr]
+            lg:gap-16
+          "
         >
-          <div className="relative w-full max-w-[560px] sm:max-w-[640px]">
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500/20 to-violet-500/20 blur-2xl opacity-30" />
+          {/* LEFT */}
+          <div
+            className="
+              w-full
+              max-w-[680px]
+              mx-auto
+              text-center
 
-            <div className="relative rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:p-7">
-              <div className="mb-5 flex gap-2">
-                <span className="h-3 w-3 rounded-full bg-red-500" />
-                <span className="h-3 w-3 rounded-full bg-yellow-500" />
-                <span className="h-3 w-3 rounded-full bg-green-500" />
-              </div>
+              lg:mx-0
+              lg:max-w-xl
+              lg:text-left
+            "
+          >
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="
+                mb-5
+                text-[11px]
+                uppercase
+                tracking-[0.35em]
+                text-indigo-300
+                sm:text-xs
+              "
+            >
+              Frontend Developer
+            </motion.p>
 
-              <pre className="max-w-full overflow-x-auto whitespace-pre-wrap break-words font-mono text-sm leading-relaxed text-sky-300 sm:text-[15px]">
-                {text}
-                <span className="ml-1 animate-pulse text-white">|</span>
-              </pre>
-            </div>
+            <motion.h1
+              initial={{ opacity: 0, y: 26 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="
+                font-bold tracking-tight
+
+                text-4xl leading-[1.05]
+                sm:text-5xl
+                md:text-6xl
+                lg:text-7xl
+              "
+            >
+              Hi, I'm{" "}
+              <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+                Fatima
+              </span>{" "}
+              👋
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.6 }}
+              className="
+                mx-auto mt-6
+                max-w-md
+                text-sm leading-relaxed text-gray-400
+
+                sm:text-base
+                lg:mx-0
+              "
+            >
+              I build fast, scalable and modern web applications with React,
+              Next.js, Tailwind CSS and smooth user experiences.
+            </motion.p>
+
+            {/* buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25, duration: 0.6 }}
+              className="
+                mt-8
+                flex flex-wrap items-center justify-center
+                gap-4
+
+                lg:justify-start
+              "
+            >
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => scrollToSection("process")}
+                className="
+                  rounded-xl
+                  bg-gradient-to-r
+                  from-indigo-500 to-violet-500
+
+                  px-6 py-3
+                  text-sm font-medium text-white
+
+                  shadow-lg shadow-indigo-500/20
+                  transition
+                "
+              >
+                Start Experience →
+              </motion.button>
+
+              <button
+                onClick={() => scrollToSection("projects")}
+                className="
+                  rounded-xl
+                  border border-white/10
+                  bg-white/[0.04]
+
+                  px-6 py-3
+                  text-sm text-gray-200
+
+                  transition
+                  hover:border-white/20
+                  hover:bg-white/[0.07]
+                "
+              >
+                View Projects
+              </button>
+            </motion.div>
+
+            {/* scroll hint */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="
+                mt-10 hidden
+                text-sm text-gray-500
+                lg:block
+              "
+            >
+              ↓ Scroll to explore
+            </motion.div>
           </div>
-        </motion.div>
+
+          {/* RIGHT */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="
+              flex w-full justify-center
+              lg:justify-end
+            "
+          >
+            <div
+              className="
+                relative w-full
+                max-w-[620px]
+              "
+            >
+              {/* glow */}
+              <div className="absolute inset-0 rounded-[28px] bg-gradient-to-r from-indigo-500/20 to-violet-500/20 blur-3xl opacity-30" />
+
+              {/* code panel */}
+              <div
+                className="
+                  relative overflow-hidden
+                  rounded-[28px]
+                  border border-white/10
+                  bg-white/[0.04]
+
+                  p-5
+                  shadow-[0_20px_80px_rgba(0,0,0,0.45)]
+                  backdrop-blur-2xl
+
+                  sm:p-6
+                  md:p-7
+                "
+              >
+                {/* top bar */}
+                <div className="mb-5 flex items-center gap-2">
+                  <span className="h-3 w-3 rounded-full bg-red-500" />
+                  <span className="h-3 w-3 rounded-full bg-yellow-500" />
+                  <span className="h-3 w-3 rounded-full bg-green-500" />
+                </div>
+
+                {/* code */}
+                <pre
+                  className="
+                    overflow-x-auto
+                    whitespace-pre-wrap
+                    break-words
+
+                    font-mono
+                    text-[13px]
+                    leading-relaxed
+                    text-sky-300
+
+                    sm:text-sm
+                    md:text-[15px]
+                  "
+                >
+                  {text}
+                  <span className="ml-1 animate-pulse text-white">|</span>
+                </pre>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
