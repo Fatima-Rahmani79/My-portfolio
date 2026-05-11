@@ -109,7 +109,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-24 left-6 right-6 z-40 bg-[#090b14]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 flex flex-col gap-4 text-center text-gray-200 shadow-xl shadow-black/40"
+            className="fixed top-24 inset-x-6 z-40 bg-[#090b14]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 flex flex-col gap-4 text-center text-gray-200 shadow-xl shadow-black/40"
           >
             {links.map((link) => (
               <a

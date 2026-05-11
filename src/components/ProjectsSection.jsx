@@ -42,7 +42,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden bg-[#0B0B0F] px-6 py-24 text-white"
+      className="relative overflow-hidden bg-[#0B0B0F] px-6 py-24 text-white sm:px-8"
     >
       {/* <div className="pointer-events-none absolute left-[-120px] top-[10%] h-[320px] w-[320px] rounded-full bg-indigo-600/10 blur-[120px]" />
       <div className="pointer-events-none absolute bottom-[-120px] right-[-120px] h-[280px] w-[280px] rounded-full bg-violet-500/10 blur-[120px]" /> */}
@@ -128,7 +128,7 @@ function ProjectCard({ project, index }) {
         transformPerspective: 1200,
         transformStyle: "preserve-3d",
       }}
-      className="group relative h-[380px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] will-change-transform transform-gpu md:h-[440px]"
+      className="group relative min-h-[380px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] will-change-transform transform-gpu md:min-h-[440px]"
     >
       <div className="absolute inset-0 overflow-hidden rounded-3xl">
         <img
@@ -142,8 +142,8 @@ function ProjectCard({ project, index }) {
         <div className="absolute inset-0 bg-indigo-500/10 opacity-0 transition duration-700 group-hover:opacity-100" /> */}
       </div>
 
-      <div className="relative z-10 flex h-full items-end p-4 sm:p-2 md:p-3">
-        <div className="relative isolate w-full max-w-[380px] overflow-hidden rounded-2xl border border-white/10 bg-black/20 p-5 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-md hover:backdrop-blur-2xl sm:p-6">
+      <div className="relative z-10 flex h-full items-end p-4 sm:p-5 md:p-6">
+        <div className="relative isolate w-full max-w-full overflow-hidden rounded-2xl border border-white/10 bg-black/20 p-5 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-md hover:backdrop-blur-2xl sm:p-6">
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent" />
           <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
 

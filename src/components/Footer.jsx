@@ -2,7 +2,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/5 bg-[#06070f] px-6 py-10">
+    <footer className="relative overflow-hidden border-t border-white/5 bg-[#06070f] px-6 py-10 sm:px-8">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-indigo-500/[0.03] to-transparent" />
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-center justify-between gap-5 md:flex-row">

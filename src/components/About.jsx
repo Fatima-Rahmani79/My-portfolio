@@ -11,7 +11,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-[#0B0B0F] text-white px-6 py-28"
+      className="relative overflow-hidden bg-[#0B0B0F] text-white px-6 py-28 sm:px-8"
     >
       <div className="relative max-w-6xl mx-auto">
         {/* HEADER */}

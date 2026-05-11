@@ -168,7 +168,7 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      className="relative overflow-hidden bg-[#0B0B0F] text-white py-24 px-6"
+      className="relative overflow-hidden bg-[#0B0B0F] text-white py-24 px-6 sm:px-8"
     >
       {/* background glow */}
       {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(79,70,229,0.18),transparent_60%)]" /> */}

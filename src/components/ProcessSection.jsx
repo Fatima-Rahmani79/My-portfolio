@@ -62,7 +62,7 @@ export default function ProcessSection() {
     <section
       ref={ref}
       id="process"
-      className="relative overflow-hidden bg-[#0B0B0F] px-6 py-16 text-white lg:py-20"
+      className="relative overflow-hidden bg-[#0B0B0F] px-6 py-16 text-white sm:px-8 lg:py-20"
     >
       <div className="relative mx-auto max-w-6xl">
         <motion.div
