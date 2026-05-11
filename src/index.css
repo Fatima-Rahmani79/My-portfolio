@@ -49,12 +49,12 @@ body::before {
   background-image:
     radial-gradient(
       circle at top left,
-      rgba(99, 102, 241, 0.14),
+      rgba(99, 101, 241, 0.066),
       transparent 20%
     ),
     radial-gradient(
       circle at bottom right,
-      rgba(139, 92, 246, 0.1),
+      rgba(138, 92, 246, 0.046),
       transparent 18%
     );
   pointer-events: none;

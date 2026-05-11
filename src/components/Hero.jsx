@@ -54,9 +54,9 @@ export default function Hero() {
       "
     >
       {/* background glow */}
-      <div className="pointer-events-none absolute left-[-140px] top-[-140px] h-[420px] w-[420px] rounded-full bg-indigo-600/15 blur-[140px]" />
+      <div className="pointer-events-none absolute left-[-140px] top-[-140px] h-[420px] w-[420px] rounded-full bg-indigo-600/3 blur-[140px]" />
 
-      <div className="pointer-events-none absolute bottom-[-140px] right-[-140px] h-[360px] w-[360px] rounded-full bg-violet-500/15 blur-[140px]" />
+      <div className="pointer-events-none absolute bottom-[-140px] right-[-140px] h-[360px] w-[360px] rounded-full bg-violet-500/3 blur-[140px]" />
 
       {/* container */}
       <div
