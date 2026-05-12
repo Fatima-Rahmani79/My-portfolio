@@ -209,8 +209,8 @@ export default function About() {
 
         <div className="mt-14 flex flex-wrap justify-center ">
           <a
-            href="/resume.pdf"
-            download
+            href="/Fatima_Rahmani_Resume.pdf"
+            download="Fatima-Rahmani-Resume.pdf"
             className="button-primary inline-flex items-center gap-2"
           >
             Download Resume
