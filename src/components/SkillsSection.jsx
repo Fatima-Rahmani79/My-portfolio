@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const skills = [
   {
     name: "HTML",
-    level: 95,
+    level: "Expert",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -18,11 +18,18 @@ const skills = [
         />
       </svg>
     ),
-    color: "from-orange-500 to-red-500",
+
+    items: [
+      "Semantic HTML",
+      "Accessibility",
+      "SEO Basics",
+      "Forms & Validation",
+    ],
   },
+
   {
     name: "CSS",
-    level: 90,
+    level: "Advanced",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -45,10 +52,17 @@ const skills = [
       </svg>
     ),
     color: "from-blue-500 to-sky-400",
+    items: [
+      "Responsive Design",
+      "Flexbox & Grid",
+      "Animations",
+      "Modern Layouts",
+    ],
   },
+
   {
     name: "JavaScript",
-    level: 85,
+    level: "Advanced",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -62,10 +76,12 @@ const skills = [
       </svg>
     ),
     color: "from-yellow-400 to-yellow-500",
+    items: ["ES6+", "DOM Manipulation", "Async/Await", "REST APIs"],
   },
+
   {
     name: "React",
-    level: 80,
+    level: "Intermediate+",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -81,48 +97,17 @@ const skills = [
       </svg>
     ),
     color: "from-cyan-400 to-sky-400",
+    items: [
+      "Hooks",
+      "Reusable Components",
+      "State Management",
+      "Framer Motion",
+    ],
   },
-  {
-    name: "Tailwind CSS",
-    level: 70,
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
-        viewBox="0 0 128 128"
-      >
-        <title xmlns="">tailwindcss</title>
-        <path
-          fill="#38bdf8"
-          d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597c6.398-8.531 13.867-11.73 22.398-9.597c4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602q-9.6 12.803-22.399 9.602c-4.87-1.215-8.347-4.746-12.207-8.66c-6.27-6.367-13.53-13.738-29.394-13.738M32.004 64c-17.066 0-27.73 8.531-32 25.602Q9.603 76.799 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66c6.274 6.367 13.536 13.738 29.395 13.738c17.066 0 27.73-8.53 32-25.597q-9.6 12.797-22.399 9.597c-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64m0 0"
-        />
-      </svg>
-    ),
-    color: "from-cyan-400 to-teal-300",
-  },
-  {
-    name: "Git",
-    level: 80,
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
-        viewBox="0 0 128 128"
-      >
-        <title xmlns="">git</title>
-        <path
-          fill="#f34f29"
-          d="M124.737 58.378L69.621 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.68 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314c2.703 2.706 3.461 6.607 2.294 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295c3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 0 1-13.683 0a9.68 9.68 0 0 1-2.105-10.521L68.574 47.933l-.002 34.341a9.7 9.7 0 0 1 2.559 1.828c3.778 3.777 3.778 9.898 0 13.683c-3.779 3.777-9.904 3.777-13.679 0c-3.778-3.784-3.778-9.905 0-13.683a9.7 9.7 0 0 1 3.167-2.11V47.333a9.6 9.6 0 0 1-3.167-2.111c-2.862-2.86-3.551-7.06-2.083-10.576L41.056 20.333L3.264 58.123a8.133 8.133 0 0 0 0 11.5l55.117 55.114c3.174 3.174 8.32 3.174 11.499 0l54.858-54.858a8.135 8.135 0 0 0-.001-11.501"
-        />
-      </svg>
-    ),
-    color: "from-orange-500 to-red-500",
-  },
+
   {
     name: "Next.js",
-    level: 82,
+    level: "Intermediate",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -138,11 +123,60 @@ const skills = [
         <path fill="#fff" d="M78 38h9v52h-9z" />
       </svg>
     ),
-    color: "from-white to-gray-400",
+    color: "from-gray-200 to-gray-500",
+    items: ["App Router", "SSR & SSG", "Routing", "Performance"],
   },
+
+  {
+    name: "Tailwind CSS",
+    level: "Advanced",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 128 128"
+      >
+        <title xmlns="">tailwindcss</title>
+        <path
+          fill="#38bdf8"
+          d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597c6.398-8.531 13.867-11.73 22.398-9.597c4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602q-9.6 12.803-22.399 9.602c-4.87-1.215-8.347-4.746-12.207-8.66c-6.27-6.367-13.53-13.738-29.394-13.738M32.004 64c-17.066 0-27.73 8.531-32 25.602Q9.603 76.799 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66c6.274 6.367 13.536 13.738 29.395 13.738c17.066 0 27.73-8.53 32-25.597q-9.6 12.797-22.399 9.597c-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64m0 0"
+        />
+      </svg>
+    ),
+    color: "from-cyan-400 to-teal-300",
+    items: [
+      "Responsive Systems",
+      "Glassmorphism",
+      "Dark Mode",
+      "Custom Components",
+    ],
+  },
+
+  {
+    name: "Git",
+    level: "Intermediate",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 128 128"
+      >
+        <title xmlns="">git</title>
+        <path
+          fill="#f34f29"
+          d="M124.737 58.378L69.621 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.68 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314c2.703 2.706 3.461 6.607 2.294 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295c3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 0 1-13.683 0a9.68 9.68 0 0 1-2.105-10.521L68.574 47.933l-.002 34.341a9.7 9.7 0 0 1 2.559 1.828c3.778 3.777 3.778 9.898 0 13.683c-3.779 3.777-9.904 3.777-13.679 0c-3.778-3.784-3.778-9.905 0-13.683a9.7 9.7 0 0 1 3.167-2.11V47.333a9.6 9.6 0 0 1-3.167-2.111c-2.862-2.86-3.551-7.06-2.083-10.576L41.056 20.333L3.264 58.123a8.133 8.133 0 0 0 0 11.5l55.117 55.114c3.174 3.174 8.32 3.174 11.499 0l54.858-54.858a8.135 8.135 0 0 0-.001-11.501"
+        />
+      </svg>
+    ),
+    color: "from-orange-500 to-red-500",
+    items: ["GitHub Workflow", "Branching", "Pull Requests", "Version Control"],
+  },
+
   {
     name: "Bootstrap",
-    level: 70,
+    level: "Intermediate",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -161,6 +195,12 @@ const skills = [
       </svg>
     ),
     color: "from-violet-500 to-purple-500",
+    items: [
+      "Grid System",
+      "Responsive Components",
+      "Utilities",
+      "Rapid Prototyping",
+    ],
   },
 ];
 
@@ -168,69 +208,100 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      className="relative overflow-hidden bg-[#0B0B0F] text-white py-24 px-6 sm:px-8"
+      className="relative overflow-hidden bg-[#0B0B0F] py-24 text-white"
     >
-      {/* background glow */}
-      {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(79,70,229,0.18),transparent_60%)]" /> */}
+      {/* glow */}
+      <div className="pointer-events-none absolute left-0 top-0 h-[300px] w-[300px] rounded-full bg-indigo-500/10 blur-[120px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
-        {/* HEADER */}
-        <div className="text-center mb-14">
-          <p className="text-indigo-400 text-sm tracking-[0.25em] uppercase">
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-8">
+        {/* header */}
+        <div className="mx-auto mb-16 max-w-2xl text-center">
+          <p className="text-sm uppercase tracking-[0.3em] text-indigo-400">
             My Skills
           </p>
 
-          <h2 className="mt-3 text-4xl md:text-5xl font-bold">
+          <h2 className="mt-4 text-4xl font-bold md:text-5xl">
             Skills & Technologies
           </h2>
 
-          <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-            Technologies I work with to build responsive, interactive, and
-            modern web experiences.
+          <p className="mt-5 text-gray-400">
+            Technologies and tools I use to build modern, responsive and
+            interactive web applications.
           </p>
         </div>
 
-        {/* GRID */}
-        <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-4">
+        {/* grid */}
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {skills.map((skill, i) => (
             <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
+              key={skill.name}
+              initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: i * 0.08 }}
+              transition={{
+                duration: 0.5,
+                delay: i * 0.06,
+              }}
               viewport={{ once: true }}
-              className="group relative hover:translate-y-0.5 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-5 overflow-hidden transition"
+              className="
+                group relative overflow-hidden
+                rounded-3xl border border-white/10
+                bg-white/[0.03]
+                p-6 backdrop-blur-xl
+                transition duration-300
+
+                hover:-translate-y-1
+                hover:border-white/15
+                hover:bg-white/[0.05]
+              "
             >
-              {/* glow */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-white/[0.04] to-transparent" />
+              {/* gradient glow */}
+              <div
+                className={`
+                  absolute inset-0 opacity-0 blur-2xl transition duration-500
+                  group-hover:opacity-20
+                  bg-gradient-to-br ${skill.color}
+                `}
+              />
 
-              {/* icon + title */}
-              <div className="relative z-10 flex items-center gap-3">
-                <div className="text-3xl">{skill.icon}</div>
+              {/* content */}
+              <div className="relative z-10">
+                {/* top */}
+                <div className="flex items-center gap-4">
+                  <div
+                    className={`
+                      flex h-14 w-14 items-center justify-center
+                      rounded-2xl text-3xl
+                      bg-gradient-to-br ${skill.color}
+                    `}
+                  >
+                    {skill.icon}
+                  </div>
 
-                <h3 className="font-medium text-sm md:text-base">
-                  {skill.name}
-                </h3>
-              </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">{skill.name}</h3>
 
-              {/* progress */}
-              <div className="relative z-10 mt-6">
-                <div className="flex justify-between text-xs text-gray-400 mb-2">
-                  <span>Level</span>
-                  <span>{skill.level}%</span>
+                    <p className="text-sm text-gray-400">{skill.level}</p>
+                  </div>
                 </div>
 
-                <div className="h-2 rounded-full bg-white/10 overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    transition={{
-                      duration: 1,
-                      delay: 0.2 + i * 0.08,
-                    }}
-                    viewport={{ once: true }}
-                    className={`h-full rounded-full bg-gradient-to-r ${skill.color}`}
-                  />
+                {/* divider */}
+                <div className="my-6 h-px bg-white/10" />
+
+                {/* skills list */}
+                <div className="flex flex-wrap gap-2">
+                  {skill.items.map((item) => (
+                    <span
+                      key={item}
+                      className="
+                        rounded-full border border-white/10
+                        bg-white/[0.04]
+                        px-3 py-1.5
+                        text-xs text-gray-300
+                      "
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.div>
