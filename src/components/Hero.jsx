@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const code = `const developer = {
   name: 'Fatima Rahmani',
@@ -195,6 +196,38 @@ export default function Hero() {
               >
                 View Projects
               </button>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.6 }}
+              className="
+    mt-7
+    flex items-center justify-center gap-4
+
+    lg:justify-start
+  "
+            >
+              <a
+                href="https://github.com/Fatima-Rahmani79"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-gray-400 transition hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
+                aria-label="GitHub"
+              >
+                <FaGithub size={18} />
+              </a>
+
+              <a
+                href="https://linkedin.com/in/fatima-rahmani-556320365"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-gray-400 transition hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin size={18} />
+              </a>
             </motion.div>
 
             {/* scroll hint */}
