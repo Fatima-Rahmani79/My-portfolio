@@ -7,8 +7,8 @@ const skills = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
+        width="1.6em"
+        height="1.6em"
         viewBox="0 0 32 32"
       >
         <title xmlns="">html</title>
@@ -18,7 +18,7 @@ const skills = [
         />
       </svg>
     ),
-
+    color: "from-orange-500 to-red-500",
     items: [
       "Semantic HTML",
       "Accessibility",
@@ -33,8 +33,8 @@ const skills = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
+        width="1.6em"
+        height="1.6em"
         viewBox="0 0 256 256"
       >
         <title xmlns="">css</title>
@@ -66,8 +66,8 @@ const skills = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
+        width="1.6em"
+        height="1.6em"
         viewBox="0 0 32 32"
       >
         <title xmlns="">file-type-js-official</title>
@@ -85,8 +85,8 @@ const skills = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
+        width="1.6em"
+        height="1.6em"
         viewBox="0 0 128 128"
       >
         <title xmlns="">reactnative</title>
@@ -111,8 +111,8 @@ const skills = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
+        width="1.6em"
+        height="1.6em"
         viewBox="0 0 128 128"
       >
         <circle cx="64" cy="64" r="64" fill="#000" />
@@ -133,8 +133,8 @@ const skills = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
+        width="1.6em"
+        height="1.6em"
         viewBox="0 0 128 128"
       >
         <title xmlns="">tailwindcss</title>
@@ -159,8 +159,8 @@ const skills = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
+        width="1.6em"
+        height="1.6em"
         viewBox="0 0 128 128"
       >
         <title xmlns="">git</title>
@@ -180,8 +180,8 @@ const skills = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="1em"
-        height="1em"
+        width="1.6em"
+        height="1.6em"
         viewBox="0 0 256 256"
       >
         <path
@@ -271,7 +271,6 @@ export default function SkillsSection() {
                     className={`
                       flex h-14 w-14 items-center justify-center
                       rounded-2xl text-3xl
-                      bg-gradient-to-br ${skill.color}
                     `}
                   >
                     {skill.icon}
