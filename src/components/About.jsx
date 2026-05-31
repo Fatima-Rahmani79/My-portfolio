@@ -33,9 +33,16 @@ export default function About() {
           </h2>
 
           <p className="mt-6 text-gray-400 leading-relaxed">
-            I create immersive frontend experiences focused on interaction,
-            motion, and visual clarity — blending clean code with polished UI
-            design.
+            I'm Fatima, a frontend developer with 2 years of hands-on experience
+            building web applications with HTML, CSS, JavaScript, React, and
+            Next.js. I'm self-taught — which means I've learned by doing,
+            breaking things, and rebuilding them better. I enjoy the full
+            journey from a rough idea to a polished, working interface. I'm
+            currently deepening my skills through daily coding challenges and
+            real projects, and I'm open to freelance work, collaborations, and
+            junior opportunities where I can keep growing while contributing
+            real value. If you have a project in mind or just want to connect —
+            I'd love to hear from you.
           </p>
         </motion.div>
 
