@@ -143,8 +143,27 @@ export default function Hero() {
                 lg:mx-0
               "
             >
-              I build fast, scalable and modern web applications with React,
-              Next.js, Tailwind CSS and smooth user experiences.
+              A self-taught frontend developer from Afghanistan — building
+              clean, modern web interfaces with React, Next.js, and a sharp eye
+              for design.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.6 }}
+              className="
+                mx-auto mt-6
+                max-w-md
+                text-sm leading-relaxed text-gray-400
+
+                sm:text-base
+                lg:mx-0
+              "
+            >
+              I've spent the last 2 years turning curiosity into code. I care
+              about the details — smooth interactions, responsive layouts, and
+              interfaces that actually feel good to use.
             </motion.p>
 
             {/* buttons */}
