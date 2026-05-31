@@ -1,16 +1,85 @@
-# React + Vite
+# Fatima Rahmani Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern frontend portfolio website built with React, Vite, Tailwind CSS, and Framer Motion.
 
-Currently, two official plugins are available:
+This project showcases Fatima Rahmani's skills, selected work, and process through a clean, responsive portfolio experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- Hero section with animated developer introduction and code-style typing effect
+- Project showcase with live/demo and source code links
+- Skills section highlighting frontend technologies and experience
+- Process section showing how projects are developed from concept to delivery
+- Contact section for freelance inquiries, collaboration, or networking
+- Fully responsive layout with smooth motion effects and accessible UI
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧱 Tech Stack
 
-## Expanding the ESLint configuration
+- React 19
+- Vite 8
+- Tailwind CSS 4
+- Framer Motion
+- React Icons / Lucide React
+- ESLint for code quality
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Project Structure
+
+- `src/App.jsx` — page composition and section order
+- `src/components/` — reusable page sections:
+  - `Navbar.jsx`
+  - `Hero.jsx`
+  - `About.jsx`
+  - `ProcessSection.jsx`
+  - `ProjectsSection.jsx`
+  - `SkillsSection.jsx`
+  - `Contact.jsx`
+  - `Footer.jsx`
+- `public/projects/` — project preview images used in the portfolio
+
+## 💻 Local Setup
+
+1. Install dependencies
+
+```bash
+npm install
+```
+
+2. Start development server
+
+```bash
+npm run dev
+```
+
+3. Build for production
+
+```bash
+npm run build
+```
+
+4. Preview the production build locally
+
+```bash
+npm run preview
+```
+
+## 📦 NPM Scripts
+
+- `npm run dev` — start Vite development server
+- `npm run build` — build production assets
+- `npm run preview` — preview production build locally
+- `npm run lint` — run ESLint checks
+
+## 📂 Deployment
+
+This portfolio can be deployed to static hosting providers like GitHub Pages, Vercel, Netlify, or Render. After building, the output is available in the `dist/` directory.
+
+## 📫 Connect
+
+Feel free to customize this section with actual contact details or social links.
+
+- GitHub: `https://github.com/Fatima-Rahmani79`
+- LinkedIn: add your profile URL here
+
+---
+
+Built with passion for clean UI, thoughtful interaction, and fast frontend experiences.
