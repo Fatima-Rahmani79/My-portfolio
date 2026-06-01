@@ -62,7 +62,7 @@ export default function ProjectsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-7 md:grid-cols-2">
+        <div className="flex flex-col gap-7">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index + 1} />
           ))}
@@ -115,35 +115,39 @@ function ProjectCard({ project, index }) {
     rotateY.set(0);
   };
 
+  const isEven = index % 2 === 0;
+
   return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        opacity,
-        scale,
-        rotateX: smoothRotateX,
-        rotateY: smoothRotateY,
-        transformPerspective: 1200,
-        transformStyle: "preserve-3d",
-      }}
-      className="group relative min-h-[380px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] will-change-transform transform-gpu md:min-h-[440px]"
+    <div
+      className={`flex flex-col gap-6 md:items-center md:gap-8 ${
+        isEven ? "md:flex-row-reverse" : "md:flex-row"
+      }`}
     >
-      <div className="absolute inset-0 overflow-hidden rounded-3xl">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
-        />
+      <motion.div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          opacity,
+          scale,
+          rotateX: smoothRotateX,
+          rotateY: smoothRotateY,
+          transformPerspective: 1200,
+          transformStyle: "preserve-3d",
+        }}
+        className="group relative min-h-[320px] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] will-change-transform transform-gpu md:min-h-[420px] md:w-1/2"
+      >
+        <div className="absolute inset-0 overflow-hidden rounded-3xl">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="h-full w-full  object-top transition duration-700 group-hover:scale-[1.03]"
+          />
+        </div>
+      </motion.div>
 
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/12 to-transparent" />
-
-        <div className="absolute inset-0 bg-indigo-500/10 opacity-0 transition duration-700 group-hover:opacity-100" /> */}
-      </div>
-
-      <div className="relative z-10 flex h-full items-end p-4 sm:p-5 md:p-6">
-        <div className="relative isolate w-full max-w-full overflow-hidden rounded-2xl border border-white/10 bg-black/20 p-5 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-md hover:backdrop-blur-2xl sm:p-6">
+      <motion.div className="w-full md:w-1/2">
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/20 p-5 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-md hover:backdrop-blur-2xl sm:p-6">
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent" />
           <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10" />
 
@@ -183,7 +187,7 @@ function ProjectCard({ project, index }) {
             <div className="mt-5 h-[1px] w-0 bg-gradient-to-r from-indigo-400 to-violet-400 transition-all duration-500 group-hover:w-full" />
           </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 }
