@@ -16,6 +16,13 @@ const projects = [
     code: "https://github.com/Fatima-Rahmani79/goal-tracker-dashboard",
   },
   {
+    title: "TechStore",
+    desc: "TechStore is a lightweight, responsive e-commerce frontend built with Vite, React, and Tailwind CSS.",
+    image: "/projects/TechStore.png",
+    live: "https://tech-store-rouge.vercel.app/",
+    code: "https://github.com/Fatima-Rahmani79/TechStore",
+  },
+  {
     title: "NeoTechShop",
     desc: "Modern e-commerce experience focused on smooth interactions and responsive layouts.",
     image: "/projects/NeoTechShop.jpg",
