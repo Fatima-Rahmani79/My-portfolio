@@ -23,6 +23,13 @@ const projects = [
     code: "https://github.com/Fatima-Rahmani79/TechStore",
   },
   {
+    title: "World Explorer",
+    desc: "World Explorer is a polished country browser built with Next.js and the REST Countries API.",
+    image: "/projects/WorldExplorer.webp",
+    live: "https://world-explorer-f-r.vercel.app/",
+    code: "https://github.com/Fatima-Rahmani79/world-explorer",
+  },
+  {
     title: "NeoTechShop",
     desc: "Modern e-commerce experience focused on smooth interactions and responsive layouts.",
     image: "/projects/NeoTechShop.jpg",
